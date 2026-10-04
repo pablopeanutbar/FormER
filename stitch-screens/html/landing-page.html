@@ -1,0 +1,718 @@
+<!DOCTYPE html><html lang="en" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>formER - Stop filling the same form twice</title>
+<!-- Tailwind CSS CDN with plugins -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Fonts: Inter / Geist style clean sans & monospace -->
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;500;600&amp;family=Geist:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
+<!-- Tailwind Configuration -->
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Geist', 'sans-serif'],
+            mono: ['"Geist Mono"', 'monospace'],
+          },
+          colors: {
+            canvas: '#F8F9F7',
+            charcoal: {
+              DEFAULT: '#181A19',
+              muted: '#626966',
+              light: '#8C9490',
+            },
+            teal: {
+              DEFAULT: '#0B6B59',
+              dark: '#085345',
+              subtle: '#EBF4F1',
+              border: '#BFE0D7',
+            },
+            surface: '#FFFFFF',
+            borderLight: '#E2E6E3',
+            badgeRed: '#FAF0ED',
+            textRed: '#A34836',
+          }
+        }
+      }
+    }
+  </script>
+<!-- Custom Styles for crisp borders and subtle UI shadows -->
+<style data-purpose="base-styling">
+    body {
+      background-color: #F8F9F7;
+      color: #181A19;
+      -webkit-font-smoothing: antialiased;
+    }
+    .panel-shadow {
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.04);
+    }
+    .subtle-border {
+      border-color: #E2E6E3;
+    }
+  </style>
+</head>
+<body class="bg-canvas font-sans text-charcoal antialiased flex flex-col min-h-screen">
+<!-- BEGIN: NavigationBar -->
+<header class="h-[68px] bg-canvas border-b subtle-border sticky top-0 z-50 px-4 sm:px-8">
+<div class="max-w-7xl mx-auto h-full flex items-center justify-between">
+<!-- Left: Logo & primary navigation links -->
+<div class="flex items-center space-x-8">
+<a class="text-xl font-bold tracking-tight text-charcoal flex items-center" href="#">
+<span class="">form<span class="font-bold">ER.</span></span>
+</a>
+<nav class="hidden md:flex items-center space-x-6 text-[13px] font-normal text-charcoal-muted">
+<a class="hover:text-charcoal transition-colors" href="#product">Product</a>
+<a class="hover:text-charcoal transition-colors" href="#how-it-works">How it works</a>
+<a class="hover:text-charcoal transition-colors" href="#privacy">Privacy &amp; Safety</a>
+</nav>
+</div>
+<!-- Right: Action CTA button -->
+<div class="flex items-center">
+<a class="inline-flex items-center justify-center px-4 py-2 text-xs font-semibold text-white bg-teal hover:bg-teal-dark rounded transition-colors shadow-sm" href="#cta">
+          Get started
+        </a>
+</div>
+</div>
+</header>
+<!-- END: NavigationBar -->
+<main class="flex-grow">
+<!-- BEGIN: HeroSection -->
+<section class="py-12 lg:py-16 px-4 sm:px-8 max-w-7xl mx-auto border-b subtle-border">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-start">
+<!-- Left Column: Copy & Core CTA -->
+<div class="lg:col-span-5 pt-2">
+<span class="font-mono text-[11px] font-semibold tracking-wider text-charcoal-muted uppercase block mb-3">
+            BROWSER EXTENSION FOR FORMS
+          </span>
+<h1 class="text-4xl sm:text-5xl font-bold tracking-tight text-charcoal leading-[1.12] mb-5">
+            Stop filling forms manually</h1>
+<p class="text-[15px] leading-relaxed text-charcoal-muted mb-8 max-w-md">
+            formER remembers your details, documents, and past applications—then automatically fills out long online forms in seconds.
+          </p>
+<!-- Action CTA -->
+<div class="flex flex-wrap items-center gap-4 mb-8">
+<a class="inline-flex items-center justify-center px-5 py-2.5 text-xs font-semibold text-white bg-teal hover:bg-teal-dark rounded transition-colors shadow-sm" href="#cta">
+              Get started
+            </a>
+<span class="text-xs text-charcoal-muted font-normal">
+              Chrome, Edge &amp; Brave &nbsp;·&nbsp; Free to use
+            </span>
+</div>
+<!-- Trust Badge -->
+<div class="flex items-start space-x-2 text-charcoal-muted">
+<svg class="w-4 h-4 text-teal flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+<path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<p class="text-xs text-charcoal-muted leading-tight">
+              You review everything before it fills. No surprises, no blind submissions.
+            </p>
+</div>
+</div>
+<!-- Right Column: Interactive Browser & Companion Extension Mockup -->
+<div class="lg:col-span-7">
+<div class="bg-white rounded-lg border subtle-border shadow-sm overflow-hidden text-[11px]">
+<!-- Browser Header / Chrome URL Bar -->
+<div class="bg-[#F0F2F0] px-3 py-2 border-b subtle-border flex items-center space-x-2">
+<div class="flex items-center space-x-1.5 mr-2">
+<div class="w-2.5 h-2.5 rounded-full bg-zinc-300"></div>
+<div class="w-2.5 h-2.5 rounded-full bg-zinc-300"></div>
+<div class="w-2.5 h-2.5 rounded-full bg-zinc-300"></div>
+</div>
+<div class="flex-grow flex items-center justify-center">
+<div class="bg-white px-3 py-1 rounded border subtle-border w-full max-w-sm flex items-center space-x-1.5 text-zinc-500 font-mono text-[10px]">
+<svg class="w-3 h-3 text-zinc-400" fill="currentColor" viewBox="0 0 20 20">
+<path clip-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" fill-rule="evenodd"></path>
+</svg>
+<span class="truncate">exams.upsc.gov.in/applicant/reg-step2.html</span>
+</div>
+</div>
+<!-- Simulated Extension Active Icon -->
+<div class="w-5 h-5 flex items-center justify-center rounded bg-teal text-white font-bold text-[9px]">
+                F
+              </div>
+</div>
+<!-- Main Body: Application Form & Extension Panel -->
+<div class="grid grid-cols-1 md:grid-cols-12 divide-y md:divide-y-0 md:divide-x subtle-border bg-white">
+<!-- Left Portal View (Applicant Form Preview) -->
+<div class="p-5 md:col-span-7 space-y-4">
+<div class="flex items-center justify-between pb-2 border-b border-zinc-100">
+<span class="font-mono text-[10px] uppercase font-semibold text-charcoal-muted tracking-wider">
+                    APPLICATION FORM · STEP 2 OF 4
+                  </span>
+<span class="bg-[#F0F6F4] text-teal border border-teal-border text-[9px] px-1.5 py-0.5 rounded font-mono font-medium">
+                    Autofill ready
+                  </span>
+</div>
+<!-- Field 1: Name -->
+<div class="space-y-1">
+<div class="flex justify-between items-center text-[10px]">
+<label class="text-charcoal-muted font-medium">Full Name (as per matriculation)</label>
+<span class="text-teal font-mono text-[9px]">Matched</span>
+</div>
+<div class="flex justify-between items-center px-2.5 py-1.5 rounded border border-zinc-200 bg-white">
+<span class="font-medium text-charcoal">Aarav V. Sharma</span>
+<span class="text-[9px] text-zinc-400">from Saved Profile</span>
+</div>
+</div>
+<!-- Field 2: Father's Name -->
+<div class="space-y-1">
+<div class="flex justify-between items-center text-[10px]">
+<label class="text-charcoal-muted font-medium">Father's Full Name</label>
+<span class="text-teal font-mono text-[9px]">Matched</span>
+</div>
+<div class="flex justify-between items-center px-2.5 py-1.5 rounded border border-zinc-200 bg-white">
+<span class="font-medium text-charcoal">Vikram S. Sharma</span>
+<span class="text-[9px] text-zinc-400">from Saved Profile</span>
+</div>
+</div>
+<!-- Field 3: Date of Birth -->
+<div class="space-y-1">
+<div class="flex justify-between items-center text-[10px]">
+<label class="text-charcoal-muted font-medium">Date of Birth (DD/MM/YYYY)</label>
+<span class="text-teal font-mono text-[9px]">Auto-formatted</span>
+</div>
+<div class="flex justify-between items-center px-2.5 py-1.5 rounded border border-zinc-200 bg-white">
+<span class="font-medium text-charcoal">14/08/1998</span>
+<span class="text-[9px] text-zinc-400">DD/MM/YYYY converted</span>
+</div>
+</div>
+<!-- Field 4: 10th Marks -->
+<div class="space-y-1">
+<div class="flex justify-between items-center text-[10px]">
+<label class="text-charcoal-muted font-medium">10th Marks / Percentage</label>
+<span class="text-teal font-mono text-[9px]">Verified</span>
+</div>
+<div class="flex justify-between items-center px-2.5 py-1.5 rounded border border-zinc-200 bg-white">
+<span class="font-medium text-charcoal">94.20%</span>
+<span class="text-[9px] text-teal">Verified from Marksheet</span>
+</div>
+</div>
+<!-- Field 5: Email -->
+<div class="space-y-1">
+<div class="flex justify-between items-center text-[10px]">
+<label class="text-charcoal-muted font-medium">Email Address</label>
+<span class="text-teal font-mono text-[9px]">Matched</span>
+</div>
+<div class="flex justify-between items-center px-2.5 py-1.5 rounded border border-zinc-200 bg-white">
+<span class="font-medium text-charcoal truncate">aarav.sharma@domain.co</span>
+<span class="text-[9px] text-zinc-400 flex-shrink-0 ml-1">Primary Contact</span>
+</div>
+</div>
+</div>
+<!-- Right Companion Extension Side Panel -->
+<div class="p-4 md:col-span-5 bg-[#FAFBFA] flex flex-col justify-between space-y-4">
+<div>
+<!-- Extension Panel Title -->
+<div class="flex items-center justify-between pb-3 border-b subtle-border">
+<div class="flex items-center space-x-1.5">
+<span class="font-bold text-xs tracking-tight text-charcoal">formER</span>
+<span class="bg-[#F0F6F4] text-teal text-[8px] font-mono px-1 rounded border border-teal-border font-medium">Ready</span>
+</div>
+<span class="text-[10px] text-charcoal-muted font-mono">Ready to fill (5)</span>
+</div>
+<!-- Recognition Status Box -->
+<div class="mt-3 p-2.5 bg-white rounded border subtle-border">
+<div class="flex items-center space-x-1.5 text-charcoal text-[11px] font-medium mb-1">
+<svg class="w-3.5 h-3.5 text-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+<span class="">5 fields recognized</span>
+</div>
+<p class="text-[10px] text-charcoal-muted leading-tight mb-2">
+                      All required application details found in your saved records.
+                    </p>
+<div class="text-[9px] font-mono text-teal">
+                      0 missing info · Ready to review
+                    </div>
+</div>
+<!-- Field Verification Checklist -->
+<div class="mt-3 space-y-1.5">
+<div class="flex items-center justify-between text-[10px] py-1 border-b border-zinc-100">
+<span class="text-charcoal-muted">Full Name</span>
+<span class="text-teal font-mono text-[9px] flex items-center">
+<span class="mr-0.5">✓</span> Profile
+                      </span>
+</div>
+<div class="flex items-center justify-between text-[10px] py-1 border-b border-zinc-100">
+<span class="text-charcoal-muted">Father's Name</span>
+<span class="text-teal font-mono text-[9px] flex items-center">
+<span class="mr-0.5">✓</span> Profile
+                      </span>
+</div>
+<div class="flex items-center justify-between text-[10px] py-1 border-b border-zinc-100">
+<span class="text-charcoal-muted">Date of Birth</span>
+<span class="text-teal font-mono text-[9px] flex items-center">
+<span class="mr-0.5">✓</span> Date OK
+                      </span>
+</div>
+<div class="flex items-center justify-between text-[10px] py-1 border-b border-zinc-100">
+<span class="text-charcoal-muted">10th Percentage</span>
+<span class="text-teal font-mono text-[9px] flex items-center">
+<span class="mr-0.5">✓</span> Verified
+                      </span>
+</div>
+<div class="flex items-center justify-between text-[10px] py-1">
+<span class="text-charcoal-muted">Email Address</span>
+<span class="text-teal font-mono text-[9px] flex items-center">
+<span class="mr-0.5">✓</span> Contact
+                      </span>
+</div>
+</div>
+</div>
+<!-- Action & Microcopy -->
+<div class="pt-2">
+<button class="w-full py-2 bg-teal hover:bg-teal-dark text-white text-[11px] font-medium rounded flex items-center justify-center space-x-1.5 transition-colors" type="button">
+<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path d="M13 10V3L4 14h7v7l9-11h-7z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+<span class="">Fill this form</span>
+</button>
+<p class="text-[9px] text-zinc-400 text-center mt-2 leading-tight">
+                    Review your details anytime before submitting
+                  </p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- END: HeroSection -->
+<!-- BEGIN: ProblemSection -->
+<section class="py-14 sm:py-16 px-4 sm:px-8 max-w-7xl mx-auto border-b subtle-border">
+<!-- Section Headers -->
+<div class="mb-10 max-w-3xl">
+<span class="font-mono text-[11px] font-semibold tracking-wider text-teal uppercase block mb-2">
+          THE PROBLEM
+        </span>
+<h2 class="text-2xl sm:text-3xl font-bold tracking-tight text-charcoal leading-snug mb-3">
+          The average university or job application asks for the exact same information across 6 pages.
+        </h2>
+<p class="text-[14px] text-charcoal-muted leading-relaxed">
+          Applicants spend hours re-typing high school marks, roll numbers, permanent addresses, and parent details into rigid portals that time out before you finish.
+        </p>
+</div>
+<!-- Problem Cards Matrix -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<!-- Problem Card 1 -->
+<div class="bg-white rounded-lg border subtle-border flex flex-col justify-between overflow-hidden shadow-sm">
+<div class="p-5">
+<div class="flex items-center justify-between mb-3 font-mono text-[10px]">
+<span class="text-charcoal-muted tracking-wider">APPLICATION 01</span>
+<span class="px-1.5 py-0.5 rounded bg-badgeRed text-textRed font-medium">38 repetitive fields</span>
+</div>
+<h3 class="font-semibold text-charcoal text-sm mb-2">
+              University Admissions Portal
+            </h3>
+<p class="text-xs text-charcoal-muted leading-relaxed">
+              Requires re-entering high school board roll numbers, semester marks, guardian annual income, and both permanent vs mailing addresses line by line.
+            </p>
+</div>
+<div class="px-5 py-3.5 bg-[#FAFBF9] border-t subtle-border text-[11px] text-charcoal-muted space-y-1">
+<div class="flex items-center space-x-1.5">
+<span class="w-1 h-1 rounded-full bg-textRed"></span>
+<span class="">Board Roll Number &amp; Marks</span>
+</div>
+<div class="flex items-center space-x-1.5">
+<span class="w-1 h-1 rounded-full bg-textRed"></span>
+<span class="">Guardian Income Certification</span>
+</div>
+<div class="flex items-center space-x-1.5">
+<span class="w-1 h-1 rounded-full bg-textRed"></span>
+<span class="">Permanent &amp; Present Addresses</span>
+</div>
+</div>
+</div>
+<!-- Problem Card 2 -->
+<div class="bg-white rounded-lg border subtle-border flex flex-col justify-between overflow-hidden shadow-sm">
+<div class="p-5">
+<div class="flex items-center justify-between mb-3 font-mono text-[10px]">
+<span class="text-charcoal-muted tracking-wider">APPLICATION 02</span>
+<span class="px-1.5 py-0.5 rounded bg-badgeRed text-textRed font-medium">42 repetitive fields</span>
+</div>
+<h3 class="font-semibold text-charcoal text-sm mb-2">
+              Government Job &amp; Civil Service Exam
+            </h3>
+<p class="text-xs text-charcoal-muted leading-relaxed">
+              Forces re-entry of Class 10th and 12th certificate serials, state domicile certificate details, identity proofs, and multiple education categories.
+            </p>
+</div>
+<div class="px-5 py-3.5 bg-[#FAFBF9] border-t subtle-border text-[11px] text-charcoal-muted space-y-1">
+<div class="flex items-center space-x-1.5">
+<span class="w-1 h-1 rounded-full bg-textRed"></span>
+<span class="">10th/12th Certificate Serials</span>
+</div>
+<div class="flex items-center space-x-1.5">
+<span class="w-1 h-1 rounded-full bg-textRed"></span>
+<span class="">State Domicile Verification</span>
+</div>
+<div class="flex items-center space-x-1.5">
+<span class="w-1 h-1 rounded-full bg-textRed"></span>
+<span class="">National ID &amp; Category Proof</span>
+</div>
+</div>
+</div>
+<!-- Problem Card 3 -->
+<div class="bg-white rounded-lg border subtle-border flex flex-col justify-between overflow-hidden shadow-sm">
+<div class="p-5">
+<div class="flex items-center justify-between mb-3 font-mono text-[10px]">
+<span class="text-charcoal-muted tracking-wider">APPLICATION 03</span>
+<span class="px-1.5 py-0.5 rounded bg-badgeRed text-textRed font-medium">29 repetitive fields</span>
+</div>
+<h3 class="font-semibold text-charcoal text-sm mb-2">
+              Scholarship &amp; Grant Application
+            </h3>
+<p class="text-xs text-charcoal-muted leading-relaxed">
+              Demands repeated entry of institution affiliation codes, previous academic year GPAs, branch IFSC bank details, and category certificates.
+            </p>
+</div>
+<div class="px-5 py-3.5 bg-[#FAFBF9] border-t subtle-border text-[11px] text-charcoal-muted space-y-1">
+<div class="flex items-center space-x-1.5">
+<span class="w-1 h-1 rounded-full bg-textRed"></span>
+<span class="">Academic Year GPA Scores</span>
+</div>
+<div class="flex items-center space-x-1.5">
+<span class="w-1 h-1 rounded-full bg-textRed"></span>
+<span class="">Institution Affiliation Codes</span>
+</div>
+<div class="flex items-center space-x-1.5">
+<span class="w-1 h-1 rounded-full bg-textRed"></span>
+<span class="">Bank &amp; IFSC Account Records</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- END: ProblemSection -->
+<!-- BEGIN: HowItWorksSection -->
+<section class="py-14 sm:py-16 px-4 sm:px-8 max-w-7xl mx-auto border-b subtle-border" id="how-it-works">
+<!-- Section Headers -->
+<div class="mb-10 max-w-3xl">
+<span class="font-mono text-[11px] font-semibold tracking-wider text-teal uppercase block mb-2">
+          HOW IT WORKS
+        </span>
+<h2 class="text-2xl sm:text-3xl font-bold tracking-tight text-charcoal leading-snug mb-3">
+          Three simple steps to never re-typing your details.
+        </h2>
+<p class="text-[14px] text-charcoal-muted leading-relaxed">
+          Fill your applications faster, accurately, and without frustration.
+        </p>
+</div>
+<!-- 3 Steps Cards -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<!-- Step 1 -->
+<div class="bg-white rounded-lg border subtle-border flex flex-col justify-between overflow-hidden shadow-sm">
+<div class="p-6">
+<div class="w-7 h-7 rounded border subtle-border flex items-center justify-center font-mono text-xs font-semibold text-teal mb-4 bg-canvas">
+              1
+            </div>
+<h3 class="font-bold text-charcoal text-sm mb-2">
+              1. Save your information once
+            </h3>
+<p class="text-xs text-charcoal-muted leading-relaxed">
+              Add your personal details, academic scores, and common documents just once to your secure private profile.
+            </p>
+</div>
+<div class="px-5 py-3 bg-[#FAFBF9] border-t subtle-border flex items-center space-x-2 text-[10px] text-charcoal-muted font-mono">
+<svg class="w-3.5 h-3.5 text-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+<span class="">Name, scores, addresses &amp; certificates</span>
+</div>
+</div>
+<!-- Step 2 -->
+<div class="bg-white rounded-lg border subtle-border flex flex-col justify-between overflow-hidden shadow-sm">
+<div class="p-6">
+<div class="w-7 h-7 rounded border subtle-border flex items-center justify-center font-mono text-xs font-semibold text-teal mb-4 bg-canvas">
+              2
+            </div>
+<h3 class="font-bold text-charcoal text-sm mb-2">
+              2. Open any online form
+            </h3>
+<p class="text-xs text-charcoal-muted leading-relaxed">
+              When you open an application portal, formER immediately recognizes what the form is asking for—even if fields are named differently.
+            </p>
+</div>
+<div class="px-5 py-3 bg-[#FAFBF9] border-t subtle-border flex items-center space-x-2 text-[10px] text-charcoal-muted font-mono">
+<svg class="w-3.5 h-3.5 text-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path d="M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5M7.188 2.239l.777 2.897M5.136 7.965l-2.898-.777M13.95 4.05l-2.122 2.122m-5.657 5.656l-2.12 2.122" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+<span class="">Automatic field detection &amp; pairing</span>
+</div>
+</div>
+<!-- Step 3 -->
+<div class="bg-white rounded-lg border subtle-border flex flex-col justify-between overflow-hidden shadow-sm">
+<div class="p-6">
+<div class="w-7 h-7 rounded border subtle-border flex items-center justify-center font-mono text-xs font-semibold text-teal mb-4 bg-canvas">
+              3
+            </div>
+<h3 class="font-bold text-charcoal text-sm mb-2">
+              3. Review &amp; fill in one click
+            </h3>
+<p class="text-xs text-charcoal-muted leading-relaxed">
+              Take a quick glance to confirm your details are accurate, click fill, and watch the entire page populate instantly.
+            </p>
+</div>
+<div class="px-5 py-3 bg-[#FAFBF9] border-t subtle-border flex items-center space-x-2 text-[10px] text-charcoal-muted font-mono">
+<svg class="w-3.5 h-3.5 text-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path d="M13 10V3L4 14h7v7l9-11h-7z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+<span class="">Instant autofill with zero submission</span>
+</div>
+</div>
+</div>
+</section>
+<!-- END: HowItWorksSection -->
+<!-- BEGIN: DocumentsAndCertificatesSection -->
+<section class="py-14 sm:py-16 px-4 sm:px-8 max-w-7xl mx-auto border-b subtle-border">
+<!-- Section Headers -->
+<div class="mb-10 max-w-3xl">
+<span class="font-mono text-[11px] font-semibold tracking-wider text-teal uppercase block mb-2">
+          DOCUMENTS &amp; CERTIFICATES
+        </span>
+<h2 class="text-2xl sm:text-3xl font-bold tracking-tight text-charcoal leading-snug mb-3">
+          Upload certificates and marksheets once. Never search through PDFs again.
+        </h2>
+<p class="text-[14px] text-charcoal-muted leading-relaxed">
+          Upload your grade sheets, degree certificates, and ID cards. formER organizes the numbers and dates so they're instantly ready for your next application.
+        </p>
+</div>
+<!-- 2-Column PDF & Extracted Records Display -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+<!-- Left: PDF Visual Representation -->
+<div class="lg:col-span-5 bg-white rounded-lg border subtle-border p-4 shadow-sm">
+<div class="flex items-center space-x-2 text-[10px] font-mono text-charcoal-muted pb-3 border-b subtle-border mb-4">
+<svg class="w-3.5 h-3.5 text-zinc-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+<span class="truncate">CBSE_Secondary_Marksheet_2014.pdf</span>
+</div>
+<!-- Document Inner Card -->
+<div class="border subtle-border rounded p-4 bg-[#FCFDFC] space-y-4">
+<div class="text-center border-b border-zinc-100 pb-3">
+<div class="text-[10px] font-bold tracking-wider text-charcoal uppercase">
+                Central Board of Secondary Education
+              </div>
+<div class="text-[8px] font-mono text-zinc-400 uppercase tracking-widest mt-0.5">
+                All India Secondary School Examination 2014
+              </div>
+</div>
+<div class="space-y-3 text-[10px]">
+<div class="border-b border-zinc-100 pb-2 flex justify-between items-start">
+<div>
+<div class="text-[8px] font-mono text-zinc-400 uppercase">CANDIDATE NAME</div>
+<div class="font-bold text-charcoal mt-0.5">AARAV V SHARMA</div>
+</div>
+<span class="text-[8px] font-mono bg-teal-subtle text-teal px-1 py-0.5 rounded">Detected</span>
+</div>
+<div class="grid grid-cols-2 gap-3 border-b border-zinc-100 pb-2">
+<div>
+<div class="text-[8px] font-mono text-zinc-400 uppercase">ROLL NO</div>
+<div class="font-mono text-charcoal font-semibold mt-0.5">6192041</div>
+</div>
+<div>
+<div class="text-[8px] font-mono text-zinc-400 uppercase">PASS PERCENTAGE</div>
+<div class="font-mono text-teal font-semibold mt-0.5">94.20%</div>
+</div>
+</div>
+<div>
+<div class="text-[8px] font-mono text-zinc-400 uppercase">INSTITUTION / SCHOOL</div>
+<div class="text-charcoal font-medium mt-0.5 text-[9px]">
+                  DELHI PUBLIC SCHOOL, R.K. PURAM
+                </div>
+</div>
+</div>
+</div>
+</div>
+<!-- Right: Structured Form Record Card -->
+<div class="lg:col-span-7 bg-white rounded-lg border subtle-border overflow-hidden shadow-sm">
+<!-- Top bar -->
+<div class="px-5 py-3 border-b subtle-border bg-[#FAFBFA] flex items-center justify-between">
+<div class="flex items-center space-x-2">
+<svg class="w-4 h-4 text-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+<span class="text-xs font-semibold text-charcoal">Saved Academic Record · Verified 10th Marksheet</span>
+</div>
+<span class="bg-[#F0F6F4] text-teal border border-teal-border text-[9px] px-2 py-0.5 rounded font-mono font-medium flex items-center space-x-1">
+<span class="">Ready to use</span>
+</span>
+</div>
+<!-- Structured Key-Value Table -->
+<div class="divide-y divide-zinc-100 text-xs">
+<div class="px-5 py-2.5 flex justify-between items-center">
+<span class="text-charcoal-muted">Candidate Name</span>
+<span class="font-medium text-charcoal">Aarav V. Sharma</span>
+</div>
+<div class="px-5 py-2.5 flex justify-between items-center">
+<span class="text-charcoal-muted">Board</span>
+<span class="font-medium text-charcoal">Central Board of Secondary Education (CBSE)</span>
+</div>
+<div class="px-5 py-2.5 flex justify-between items-center">
+<span class="text-charcoal-muted">Roll Number</span>
+<span class="font-mono text-charcoal">6192041</span>
+</div>
+<div class="px-5 py-2.5 flex justify-between items-center">
+<span class="text-charcoal-muted">Year of Passing</span>
+<span class="font-mono text-charcoal">2014</span>
+</div>
+<div class="px-5 py-2.5 flex justify-between items-center">
+<span class="text-charcoal-muted">Score / Percentage</span>
+<span class="font-mono font-semibold text-teal">94.20%</span>
+</div>
+<div class="px-5 py-2.5 flex justify-between items-center">
+<span class="text-charcoal-muted">School</span>
+<span class="font-medium text-charcoal">Delhi Public School, R.K. Puram</span>
+</div>
+</div>
+<!-- Bottom Footer Note -->
+<div class="px-5 py-3 bg-[#FAFBF9] border-t subtle-border flex items-center space-x-2 text-[10px] text-charcoal-muted font-mono">
+<svg class="w-3.5 h-3.5 text-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+<span class="">Saved securely on your device. Ready to autofill future college and job forms.</span>
+</div>
+</div>
+</div>
+</section>
+<!-- END: DocumentsAndCertificatesSection -->
+<!-- BEGIN: PrivacyAndControlSection -->
+<section class="py-14 sm:py-16 px-4 sm:px-8 max-w-7xl mx-auto border-b subtle-border" id="privacy">
+<!-- Section Headers -->
+<div class="mb-10 max-w-3xl">
+<span class="font-mono text-[11px] font-semibold tracking-wider text-teal uppercase block mb-2">
+          PRIVACY &amp; CONTROL
+        </span>
+<h2 class="text-2xl sm:text-3xl font-bold tracking-tight text-charcoal leading-snug mb-3">
+          You stay in complete control of your data.
+        </h2>
+<p class="text-[14px] text-charcoal-muted leading-relaxed">
+          formER is designed as your personal assistant, not an automated bot making decisions for you.
+        </p>
+</div>
+<!-- 3 Privacy Feature Cards -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<!-- Card 1 -->
+<div class="bg-white rounded-lg border subtle-border flex flex-col justify-between overflow-hidden shadow-sm">
+<div class="p-6">
+<div class="w-8 h-8 rounded border subtle-border flex items-center justify-center text-teal mb-4 bg-canvas">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+<path d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</div>
+<h3 class="font-bold text-charcoal text-sm mb-2">
+              Review before filling
+            </h3>
+<p class="text-xs text-charcoal-muted leading-relaxed">
+              If a question looks unusual or could mean two different things, formER flags it in amber and asks you to confirm.
+            </p>
+</div>
+<div class="px-5 py-3 bg-[#FAFBF9] border-t subtle-border flex items-center space-x-2 text-[10px] text-charcoal-muted font-mono">
+<svg class="w-3.5 h-3.5 text-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+<span class="">Flags unclear questions for manual review</span>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="bg-white rounded-lg border subtle-border flex flex-col justify-between overflow-hidden shadow-sm">
+<div class="p-6">
+<div class="w-8 h-8 rounded border subtle-border flex items-center justify-center text-teal mb-4 bg-canvas">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path d="M7 11.5V14m0-2.5v-6a1.5 1.5 0 113 0m-3 6a1.5 1.5 0 00-3 0v2a7.5 7.5 0 0015 0v-5a1.5 1.5 0 00-3 0m-6-3V11m0-5.5v-1a1.5 1.5 0 013 0v1m0 0V11m0-5.5a1.5 1.5 0 013 0v3m0 0V11" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</div>
+<h3 class="font-bold text-charcoal text-sm mb-2">
+              You hit submit, always
+            </h3>
+<p class="text-xs text-charcoal-muted leading-relaxed">
+              formER will never click submit, sign a declaration, or make payments on your behalf. You always have the final say.
+            </p>
+</div>
+<div class="px-5 py-3 bg-[#FAFBF9] border-t subtle-border flex items-center space-x-2 text-[10px] text-charcoal-muted font-mono">
+<svg class="w-3.5 h-3.5 text-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+<span class="">Zero automatic submissions guaranteed</span>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="bg-white rounded-lg border subtle-border flex flex-col justify-between overflow-hidden shadow-sm">
+<div class="p-6">
+<div class="w-8 h-8 rounded border subtle-border flex items-center justify-center text-teal mb-4 bg-canvas">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</div>
+<h3 class="font-bold text-charcoal text-sm mb-2">
+              Stored on your device
+            </h3>
+<p class="text-xs text-charcoal-muted leading-relaxed">
+              Your personal records and uploaded documents stay encrypted in your browser on your own computer, not on shared public servers.
+            </p>
+</div>
+<div class="px-5 py-3 bg-[#FAFBF9] border-t subtle-border flex items-center space-x-2 text-[10px] text-charcoal-muted font-mono">
+<svg class="w-3.5 h-3.5 text-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+<span class="">Encrypted on your own computer</span>
+</div>
+</div>
+</div>
+</section>
+<!-- END: PrivacyAndControlSection -->
+<!-- BEGIN: FinalCTASection -->
+<section class="py-16 sm:py-20 px-4 sm:px-8 max-w-4xl mx-auto text-center" id="cta">
+<span class="font-mono text-[11px] font-semibold tracking-wider text-teal uppercase block mb-3">
+        READY FOR YOUR NEXT APPLICATION
+      </span>
+<h2 class="text-3xl sm:text-4xl font-bold tracking-tight text-charcoal leading-tight mb-4">
+        Stop filling forms manually, leave it to FormER.
+      </h2>
+<p class="text-[15px] text-charcoal-muted leading-relaxed max-w-xl mx-auto mb-8">
+        Free lightweight browser extension for Chrome, Edge, and Brave. Start your next application without the headache.
+      </p>
+<div class="flex justify-center mb-6">
+<a class="inline-flex items-center justify-center px-6 py-2.5 text-xs font-semibold text-white bg-teal hover:bg-teal-dark rounded transition-colors shadow-sm" href="#">
+          Get started
+        </a>
+</div>
+<div class="flex flex-wrap items-center justify-center gap-x-2 gap-y-1 text-xs text-charcoal-muted">
+<span class="">No account required to try</span>
+<span class="">•</span>
+<span class="">Works with all major job and admissions portals</span>
+<span class="">•</span>
+<span class="text-teal font-medium">Free extension</span>
+</div>
+</section>
+<!-- END: FinalCTASection -->
+</main>
+<!-- BEGIN: MainFooter -->
+<footer class="bg-canvas border-t subtle-border py-10 px-4 sm:px-8 mt-auto">
+<div class="max-w-7xl mx-auto flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+<!-- Brand & Mission statement -->
+<div>
+<div class="text-base font-bold tracking-tight text-charcoal mb-1">
+          form<span class="font-bold">ER</span>
+</div>
+<p class="text-xs text-charcoal-muted">
+          Never re-type your personal and academic details into long online portals.
+        </p>
+</div>
+<!-- Footer Navigation Links -->
+<nav class="flex flex-wrap gap-x-6 gap-y-2 text-xs text-charcoal-muted">
+<a class="hover:text-charcoal transition-colors" href="#product">Product</a>
+<a class="hover:text-charcoal transition-colors" href="#how-it-works">How it works</a>
+<a class="hover:text-charcoal transition-colors" href="#privacy">Privacy &amp; Safety</a>
+<a class="hover:text-charcoal transition-colors" href="#universities">For Universities &amp; Students</a>
+</nav>
+</div>
+</footer>
+<!-- END: MainFooter -->
+
+
+</body></html>

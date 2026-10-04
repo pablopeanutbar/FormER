@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&amp;family=Geist+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={"darkMode":"class","theme":{"extend":{"colors":{"surface-dim":"#dadad8","primary-container":"#0b6b59","tertiary-fixed":"#ffdad3","surface-container-high":"#e8e8e6","secondary-fixed":"#dde4e0","surface-container":"#eeeeec","on-secondary-container":"#5f6663","surface-variant":"#e2e3e0","surface-container-low":"#f4f4f1","on-tertiary-container":"#ffcdc3","on-secondary":"#ffffff","primary":"#005142","inverse-on-surface":"#f1f1ef","error":"#ba1a1a","surface-clean":"#FFFFFF","surface":"#f9f9f7","tertiary-fixed-dim":"#ffb4a4","on-surface":"#1a1c1b","accent-teal":"#0B6B59","surface-container-lowest":"#ffffff","secondary":"#59605d","tertiary":"#733427","inverse-primary":"#85d6bf","outline-variant":"#bec9c4","on-secondary-fixed-variant":"#414846","primary-fixed":"#a1f2db","border-soft":"#E2E6E3","on-primary":"#ffffff","secondary-container":"#dde4e0","on-tertiary-fixed-variant":"#733427","surface-container-highest":"#e2e3e0","inverse-surface":"#2f3130","primary-fixed-dim":"#85d6bf","on-surface-variant":"#3f4945","background":"#f9f9f7","on-error":"#ffffff","outline":"#6f7975","canvas-paper":"#F8F9F7","on-primary-fixed":"#002019","on-tertiary-fixed":"#3a0a03","on-primary-fixed-variant":"#005142","on-secondary-fixed":"#161d1b","on-background":"#1a1c1b","text-secondary":"#626966","secondary-fixed-dim":"#c1c8c4","error-container":"#ffdad6","on-primary-container":"#97e8d2","on-tertiary":"#ffffff","tertiary-container":"#904b3c","on-error-container":"#93000a","surface-tint":"#0a6b59","surface-bright":"#f9f9f7","text-primary":"#181A19"},"borderRadius":{"DEFAULT":"0.125rem","lg":"0.25rem","xl":"0.5rem","full":"0.75rem"},"spacing":{"space-2xl":"4rem","space-lg":"1.5rem","gutter":"1.5rem","space-md":"1rem","gutter-mobile":"1rem","space-xl":"2.5rem","space-sm":"0.5rem","margin-mobile":"1.25rem","space-xs":"0.25rem","margin":"3rem"},"fontFamily":{"body-sm":["Geist"],"technical-meta":["Geist Mono"],"technical-code":["Geist Mono"],"body-md":["Geist"],"display-hero-mobile":["Geist"],"headline-lg-mobile":["Geist"],"headline-md":["Geist"],"display-hero":["Geist"],"body-lg":["Geist"],"label-sm":["Geist"],"technical-data":["Geist Mono"],"headline-lg":["Geist"],"label-md":["Geist"],"headline-sm":["Geist"]},"fontSize":{"body-sm":["13px",{"lineHeight":"20px","fontWeight":"400"}],"technical-meta":["11px",{"lineHeight":"14px","letterSpacing":"0.02em","fontWeight":"400"}],"technical-code":["13px",{"lineHeight":"18px","letterSpacing":"0em","fontWeight":"400"}],"body-md":["15px",{"lineHeight":"24px","fontWeight":"400"}],"display-hero-mobile":["36px",{"lineHeight":"42px","letterSpacing":"-0.025em","fontWeight":"600"}],"headline-lg-mobile":["28px",{"lineHeight":"34px","letterSpacing":"-0.02em","fontWeight":"600"}],"headline-md":["26px",{"lineHeight":"34px","letterSpacing":"-0.015em","fontWeight":"500"}],"display-hero":["52px",{"lineHeight":"60px","letterSpacing":"-0.03em","fontWeight":"600"}],"body-lg":["17px",{"lineHeight":"27px","letterSpacing":"-0.005em","fontWeight":"400"}],"label-sm":["12px",{"lineHeight":"16px","letterSpacing":"0.01em","fontWeight":"500"}],"technical-data":["12px",{"lineHeight":"16px","letterSpacing":"0.01em","fontWeight":"500"}],"headline-lg":["38px",{"lineHeight":"46px","letterSpacing":"-0.025em","fontWeight":"600"}],"label-md":["14px",{"lineHeight":"18px","letterSpacing":"-0.005em","fontWeight":"500"}],"headline-sm":["20px",{"lineHeight":"28px","letterSpacing":"-0.01em","fontWeight":"500"}]}}}}</script></head><body class="bg-surface font-body-md text-on-surface antialiased"><aside class="fixed left-0 top-0 h-full w-64 bg-surface-clean border-r border-border-soft z-50 flex flex-col justify-between select-none"><div class="flex flex-col"><div class="h-16 px-space-lg flex items-center gap-space-sm border-b border-border-soft"><span class="font-headline-sm text-headline-sm text-text-primary tracking-tight font-medium">form<span class="text-accent-teal">ER</span></span><span class="font-technical-meta text-technical-meta text-text-secondary px-space-xs py-0.5 rounded bg-surface-container border border-border-soft ml-auto">v1.4</span></div><nav class="flex flex-col gap-0.5 p-space-sm" data-active-classes="bg-surface-container text-text-primary font-medium border-l-2 border-accent-teal pl-[calc(1rem-2px)]"><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg font-label-md text-label-md text-text-secondary hover:bg-surface-container hover:text-text-primary transition-colors" data-path="dashboard" href="#"><span class="material-symbols-outlined text-[18px]">grid_view</span><span>Dashboard</span></a><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg font-label-md text-label-md text-text-secondary hover:bg-surface-container hover:text-text-primary transition-colors" data-path="my-information" href="#"><span class="material-symbols-outlined text-[18px]">badge</span><span>My Information</span></a><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg font-label-md text-label-md text-text-secondary hover:bg-surface-container hover:text-text-primary transition-colors" data-path="history" href="#"><span class="material-symbols-outlined text-[18px]">schedule</span><span>History</span></a><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg font-label-md text-label-md text-text-secondary hover:bg-surface-container hover:text-text-primary transition-colors" data-path="account" href="#"><span class="material-symbols-outlined text-[18px]">person</span><span>Account</span></a><a aria-current="page" class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg transition-colors bg-surface-container text-text-primary font-medium border-l-2 border-accent-teal pl-[calc(1rem-2px)]" data-path="settings" href="#"><span class="material-symbols-outlined text-[18px]">tune</span><span>Settings</span></a></nav></div><div class="flex flex-col border-t border-border-soft p-space-sm gap-space-xs"><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg font-label-sm text-label-sm text-text-secondary hover:bg-surface-container hover:text-text-primary transition-colors" data-path="report-issue" href="#"><span class="material-symbols-outlined text-[18px]">flag</span><span>Report an issue</span></a><div class="mt-space-xs pt-space-xs px-space-sm py-space-xs flex items-center justify-between"><div class="flex items-center gap-space-sm min-w-0"><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center shrink-0"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div><div class="flex flex-col min-w-0"><span class="font-label-md text-label-md text-text-primary truncate">Shariq</span><span class="font-technical-meta text-technical-meta text-text-secondary truncate">shariq@domain.co</span></div></div><a class="p-space-xs text-text-secondary hover:text-text-primary rounded-lg transition-colors" data-path="logout" href="#" title="Sign out"><span class="material-symbols-outlined text-[18px]">logout</span></a></div></div></aside><div class="pl-64"><header class="fixed top-0 left-64 right-0 h-16 bg-surface-clean/90 backdrop-blur-md border-b border-border-soft z-40 flex items-center justify-between px-space-lg"><div class="flex items-center gap-space-md"><div class="flex items-center gap-space-xs px-space-sm py-1 rounded bg-surface-container border border-border-soft text-text-secondary font-technical-data text-technical-data"><span class="material-symbols-outlined text-[14px]">verified_user</span><span>Autofill Ready</span></div></div><div class="flex items-center gap-space-md"><button class="flex items-center gap-space-xs px-space-sm py-1.5 rounded-lg border border-border-soft bg-surface hover:bg-surface-container text-text-primary font-label-sm text-label-sm transition-colors" type="button"><span class="material-symbols-outlined text-[16px]">search</span><span class="hidden sm:inline">Search schema</span><kbd class="font-technical-meta text-technical-meta text-text-secondary ml-space-xs">⌘K</kbd></button><div class="w-px h-5 bg-border-soft"></div><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></header><main class="relative pt-16 bg-surface min-h-screen"><div class="w-full px-space-lg py-space-lg"><div class="flex flex-col w-full max-w-5xl mx-auto pb-space-2xl">
+<!-- Header Banner -->
+<div class="flex flex-col sm:flex-row sm:items-end justify-between gap-space-md mb-space-xl">
+<div>
+<div class="flex items-center gap-space-xs text-text-secondary font-technical-meta text-technical-meta uppercase tracking-wider mb-1">
+<span>System Parameters</span>
+<span>/</span>
+<span class="text-accent-teal">Preferences</span>
+</div>
+<h1 class="font-headline-lg text-headline-lg text-text-primary tracking-tight font-medium">Settings</h1>
+<p class="font-body-md text-body-md text-text-secondary mt-1 max-w-2xl">
+        Configure how formER behaves when detecting forms and filling in your information.
+      </p>
+</div>
+<!-- Quick Feedback Toast Container (Visual feedback) -->
+<div class="opacity-0 transition-opacity duration-300 flex items-center gap-space-xs px-space-md py-1.5 rounded-lg bg-surface-container border border-border-soft text-text-primary font-technical-data text-technical-data shadow-sm" id="saveToast">
+<span class="material-symbols-outlined text-[16px] text-accent-teal">check_circle</span>
+<span>Configuration synchronized</span>
+</div>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-xl items-start">
+<!-- Left Navigation / Section Anchors -->
+<div class="lg:col-span-3 sticky top-24 hidden lg:flex flex-col gap-1">
+<span class="font-technical-meta text-technical-meta uppercase tracking-wider text-text-secondary px-space-sm mb-space-xs">Categories</span>
+<a class="flex items-center gap-space-sm px-space-sm py-2 rounded font-label-md text-label-md text-text-primary bg-surface-container font-medium border-l-2 border-accent-teal" href="#autofill">
+<span class="material-symbols-outlined text-[18px]">rule</span>
+<span>Autofill Behavior</span>
+</a>
+<a class="flex items-center gap-space-sm px-space-sm py-2 rounded font-label-md text-label-md text-text-secondary hover:text-text-primary hover:bg-surface-container transition-colors" href="#privacy">
+<span class="material-symbols-outlined text-[18px]">security</span>
+<span>Privacy &amp; Safety</span>
+</a>
+<a class="flex items-center gap-space-sm px-space-sm py-2 rounded font-label-md text-label-md text-text-secondary hover:text-text-primary hover:bg-surface-container transition-colors" href="#notifications">
+<span class="material-symbols-outlined text-[18px]">notifications_none</span>
+<span>Notifications</span>
+</a>
+<a class="flex items-center gap-space-sm px-space-sm py-2 rounded font-label-md text-label-md text-text-secondary hover:text-text-primary hover:bg-surface-container transition-colors" href="#extension">
+<span class="material-symbols-outlined text-[18px]">extension</span>
+<span>Extension Status</span>
+</a>
+<div class="mt-space-lg p-space-md rounded bg-surface-container-low border border-border-soft flex flex-col gap-2">
+<div class="flex items-center justify-between">
+<span class="font-technical-meta text-technical-meta text-text-secondary">Storage Model</span>
+<span class="font-technical-data text-technical-data text-accent-teal font-medium">Local-Only</span>
+</div>
+<p class="font-body-sm text-body-sm text-text-secondary leading-snug">
+          All identity payloads reside strictly isolated inside your authenticated client sandbox.
+        </p>
+</div>
+</div>
+<!-- Main Settings Flow -->
+<div class="lg:col-span-9 flex flex-col gap-space-xl">
+<!-- Section 1: Autofill Preferences -->
+<section class="bg-surface-clean rounded-xl border border-border-soft p-space-lg shadow-sm" id="autofill">
+<div class="flex items-center justify-between pb-space-md border-b border-border-soft mb-space-lg">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-text-primary text-[20px]">tune</span>
+<h2 class="font-headline-sm text-headline-sm text-text-primary font-medium tracking-tight">Autofill Preferences</h2>
+</div>
+<span class="font-technical-meta text-technical-meta text-text-secondary bg-surface-container px-2 py-0.5 rounded border border-border-soft">Automated Detection</span>
+</div>
+<div class="flex flex-col gap-space-lg">
+<!-- Item 1: Auto detect -->
+<div class="flex items-start justify-between gap-space-lg">
+<div class="flex flex-col pr-space-md">
+<label class="font-label-md text-label-md text-text-primary font-medium cursor-pointer" for="toggle-autodetect">
+                Automatically detect online forms
+              </label>
+<p class="font-body-sm text-body-sm text-text-secondary mt-0.5">
+                Recognizes admission, job portals, and institutional forms automatically when you navigate to them.
+              </p>
+</div>
+<button aria-checked="true" class="relative inline-flex h-6 w-11 shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-accent-teal/20 bg-accent-teal" id="toggle-autodetect" onclick="toggleSwitch(this)" role="switch" type="button">
+<span class="sr-only">Toggle automatically detect online forms</span>
+<span class="pointer-events-none inline-block h-5 w-5 transform rounded-full bg-surface-clean shadow ring-0 transition duration-200 ease-in-out translate-x-5"></span>
+</button>
+</div>
+<div class="h-px bg-border-soft w-full"></div>
+<!-- Item 2: Sensitive fields prompt -->
+<div class="flex items-start justify-between gap-space-lg">
+<div class="flex flex-col pr-space-md">
+<label class="font-label-md text-label-md text-text-primary font-medium cursor-pointer" for="toggle-sensitive">
+                Always ask before filling sensitive fields
+              </label>
+<p class="font-body-sm text-body-sm text-text-secondary mt-0.5">
+                Prompts for explicit manual confirmation before inserting national identity numbers, passport records, or financial information.
+              </p>
+</div>
+<button aria-checked="true" class="relative inline-flex h-6 w-11 shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-accent-teal/20 bg-accent-teal" id="toggle-sensitive" onclick="toggleSwitch(this)" role="switch" type="button">
+<span class="sr-only">Toggle sensitive confirmation</span>
+<span class="pointer-events-none inline-block h-5 w-5 transform rounded-full bg-surface-clean shadow ring-0 transition duration-200 ease-in-out translate-x-5"></span>
+</button>
+</div>
+<div class="h-px bg-border-soft w-full"></div>
+<!-- Item 3: Uncertain fields -->
+<div class="flex items-start justify-between gap-space-lg">
+<div class="flex flex-col pr-space-md">
+<label class="font-label-md text-label-md text-text-primary font-medium cursor-pointer" for="toggle-uncertain">
+                Review uncertain fields
+              </label>
+<p class="font-body-sm text-body-sm text-text-secondary mt-0.5">
+                Highlights ambiguous or low-confidence questions in clear amber borders so you can verify the value before final autofill.
+              </p>
+</div>
+<button aria-checked="true" class="relative inline-flex h-6 w-11 shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-accent-teal/20 bg-accent-teal" id="toggle-uncertain" onclick="toggleSwitch(this)" role="switch" type="button">
+<span class="sr-only">Toggle review uncertain fields</span>
+<span class="pointer-events-none inline-block h-5 w-5 transform rounded-full bg-surface-clean shadow ring-0 transition duration-200 ease-in-out translate-x-5"></span>
+</button>
+</div>
+<div class="h-px bg-border-soft w-full"></div>
+<!-- Radio selection: Trigger behavior -->
+<div class="flex flex-col gap-space-sm pt-space-xs">
+<span class="font-label-md text-label-md text-text-primary font-medium">Autofill trigger behavior</span>
+<span class="font-body-sm text-body-sm text-text-secondary">Determine the presentation level when entering supported web pages.</span>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-space-md mt-space-xs">
+<!-- Radio option 1 -->
+<label class="relative flex flex-col p-space-md rounded-lg border border-accent-teal bg-surface-container-low cursor-pointer transition-all">
+<div class="flex items-center justify-between mb-space-xs">
+<div class="flex items-center gap-space-sm">
+<input checked="" class="text-accent-teal focus:ring-accent-teal h-4 w-4 border-border-soft accent-accent-teal" name="trigger_behavior" onchange="flashSaved()" type="radio" value="sidepanel"/>
+<span class="font-label-md text-label-md text-text-primary font-medium">Show side panel</span>
+</div>
+<span class="font-technical-meta text-technical-meta text-accent-teal font-medium">Recommended</span>
+</div>
+<p class="font-body-sm text-body-sm text-text-secondary pl-6">
+                  Slides out an interactive drawer showing schema mapping accuracy and instant field previews.
+                </p>
+</label>
+<!-- Radio option 2 -->
+<label class="relative flex flex-col p-space-md rounded-lg border border-border-soft bg-surface-clean hover:bg-surface-container-low cursor-pointer transition-all">
+<div class="flex items-center justify-between mb-space-xs">
+<div class="flex items-center gap-space-sm">
+<input class="text-accent-teal focus:ring-accent-teal h-4 w-4 border-border-soft accent-accent-teal" name="trigger_behavior" onchange="flashSaved()" type="radio" value="manual"/>
+<span class="font-label-md text-label-md text-text-primary font-medium">Click extension icon</span>
+</div>
+<span class="font-technical-meta text-technical-meta text-text-secondary">Silent</span>
+</div>
+<p class="font-body-sm text-body-sm text-text-secondary pl-6">
+                  Remains quiet in background until you manually press the browser icon or shortcut.
+                </p>
+</label>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 2: Privacy & Security -->
+<section class="bg-surface-clean rounded-xl border border-border-soft p-space-lg shadow-sm" id="privacy">
+<div class="flex items-center justify-between pb-space-md border-b border-border-soft mb-space-lg">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-text-primary text-[20px]">shield</span>
+<h2 class="font-headline-sm text-headline-sm text-text-primary font-medium tracking-tight">Privacy &amp; Security</h2>
+</div>
+<span class="font-technical-meta text-technical-meta text-text-secondary bg-surface-container px-2 py-0.5 rounded border border-border-soft">Zero-Knowledge Baseline</span>
+</div>
+<div class="flex flex-col gap-space-lg">
+<!-- Row 1: Local encryption badge -->
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-md p-space-md rounded-lg bg-surface-container-low border border-border-soft">
+<div class="flex items-start gap-space-md">
+<span class="material-symbols-outlined text-accent-teal text-[24px] mt-0.5">lock</span>
+<div class="flex flex-col">
+<div class="flex items-center gap-space-sm">
+<span class="font-label-md text-label-md text-text-primary font-medium">Local encryption on device</span>
+<span class="inline-flex items-center px-2 py-0.5 rounded bg-surface border border-border-soft text-accent-teal font-technical-data text-technical-data font-medium">
+                    Protected
+                  </span>
+</div>
+<p class="font-body-sm text-body-sm text-text-secondary mt-0.5">
+                  Your saved records are encrypted with AES-GCM 256-bit directly in your local browser sandbox before reaching memory.
+                </p>
+</div>
+</div>
+<button class="shrink-0 font-technical-data text-technical-data text-text-secondary hover:text-text-primary px-space-sm py-1 rounded border border-border-soft bg-surface-clean hover:bg-surface transition-colors" onclick="alert('Device Key hash: SHA256-d7a9b0c2e3914ff28a49')" type="button">
+              Verify Key
+            </button>
+</div>
+<!-- Row 2: Document permissions -->
+<div class="flex items-start justify-between gap-space-lg">
+<div class="flex flex-col pr-space-md">
+<label class="font-label-md text-label-md text-text-primary font-medium cursor-pointer" for="toggle-docstorage">
+                Document storage permissions
+              </label>
+<p class="font-body-sm text-body-sm text-text-secondary mt-0.5">
+                Allow formER to store extracted document numbers (roll numbers, marks percentages, issuance authorities, certificate dates) for quick pairing.
+              </p>
+</div>
+<button aria-checked="true" class="relative inline-flex h-6 w-11 shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-accent-teal/20 bg-accent-teal" id="toggle-docstorage" onclick="toggleSwitch(this)" role="switch" type="button">
+<span class="sr-only">Toggle document storage permissions</span>
+<span class="pointer-events-none inline-block h-5 w-5 transform rounded-full bg-surface-clean shadow ring-0 transition duration-200 ease-in-out translate-x-5"></span>
+</button>
+</div>
+<div class="h-px bg-border-soft w-full"></div>
+<!-- Row 3: Data sharing & analytics (Disabled) -->
+<div class="flex items-start justify-between gap-space-lg">
+<div class="flex flex-col pr-space-md">
+<div class="flex items-center gap-space-sm">
+<label class="font-label-md text-label-md text-text-primary font-medium cursor-pointer" for="toggle-telemetry">
+                  Data sharing &amp; analytics
+                </label>
+<span class="font-technical-meta text-technical-meta px-1.5 py-0.2 rounded bg-surface-container text-text-secondary">Strict Zero Telemetry</span>
+</div>
+<p class="font-body-sm text-body-sm text-text-secondary mt-0.5">
+                Never share application inputs, submitted form values, or field heuristics with external servers or analytical third parties.
+              </p>
+</div>
+<button aria-checked="false" class="relative inline-flex h-6 w-11 shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-accent-teal/20 bg-surface-container-high" id="toggle-telemetry" onclick="toggleSwitch(this)" role="switch" type="button">
+<span class="sr-only">Toggle data sharing and analytics</span>
+<span class="pointer-events-none inline-block h-5 w-5 transform rounded-full bg-surface-clean shadow ring-0 transition duration-200 ease-in-out translate-x-0"></span>
+</button>
+</div>
+</div>
+</section>
+<!-- Section 3: Notifications -->
+<section class="bg-surface-clean rounded-xl border border-border-soft p-space-lg shadow-sm" id="notifications">
+<div class="flex items-center justify-between pb-space-md border-b border-border-soft mb-space-lg">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-text-primary text-[20px]">notifications_active</span>
+<h2 class="font-headline-sm text-headline-sm text-text-primary font-medium tracking-tight">Notifications</h2>
+</div>
+<span class="font-technical-meta text-technical-meta text-text-secondary bg-surface-container px-2 py-0.5 rounded border border-border-soft">In-Browser Prompts</span>
+</div>
+<div class="flex flex-col gap-space-lg">
+<!-- Toggle: Form completion alerts -->
+<div class="flex items-start justify-between gap-space-lg">
+<div class="flex flex-col pr-space-md">
+<label class="font-label-md text-label-md text-text-primary font-medium cursor-pointer" for="toggle-completion">
+                Form completion alerts
+              </label>
+<p class="font-body-sm text-body-sm text-text-secondary mt-0.5">
+                Receive a quiet, non-intrusive status notification when formER finishes populating multi-section pages.
+              </p>
+</div>
+<button aria-checked="true" class="relative inline-flex h-6 w-11 shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-accent-teal/20 bg-accent-teal" id="toggle-completion" onclick="toggleSwitch(this)" role="switch" type="button">
+<span class="sr-only">Toggle form completion alerts</span>
+<span class="pointer-events-none inline-block h-5 w-5 transform rounded-full bg-surface-clean shadow ring-0 transition duration-200 ease-in-out translate-x-5"></span>
+</button>
+</div>
+<div class="h-px bg-border-soft w-full"></div>
+<!-- Toggle: Missing field reminders -->
+<div class="flex items-start justify-between gap-space-lg">
+<div class="flex flex-col pr-space-md">
+<label class="font-label-md text-label-md text-text-primary font-medium cursor-pointer" for="toggle-missing">
+                Missing field reminders
+              </label>
+<p class="font-body-sm text-body-sm text-text-secondary mt-0.5">
+                Remind you when an application portal demands details currently missing from your stored biographical schema.
+              </p>
+</div>
+<button aria-checked="true" class="relative inline-flex h-6 w-11 shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-accent-teal/20 bg-accent-teal" id="toggle-missing" onclick="toggleSwitch(this)" role="switch" type="button">
+<span class="sr-only">Toggle missing field reminders</span>
+<span class="pointer-events-none inline-block h-5 w-5 transform rounded-full bg-surface-clean shadow ring-0 transition duration-200 ease-in-out translate-x-5"></span>
+</button>
+</div>
+</div>
+</section>
+<!-- Section 4: Browser Extension Settings -->
+<section class="bg-surface-clean rounded-xl border border-border-soft p-space-lg shadow-sm" id="extension">
+<div class="flex items-center justify-between pb-space-md border-b border-border-soft mb-space-lg">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-text-primary text-[20px]">hub</span>
+<h2 class="font-headline-sm text-headline-sm text-text-primary font-medium tracking-tight">Browser Extension Settings</h2>
+</div>
+<span class="font-technical-meta text-technical-meta text-text-secondary bg-surface-container px-2 py-0.5 rounded border border-border-soft">Desktop Host</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-lg">
+<!-- Extension Status Box -->
+<div class="flex flex-col justify-between p-space-md rounded-lg bg-surface-container-low border border-border-soft">
+<div class="flex flex-col">
+<span class="font-technical-meta text-technical-meta uppercase tracking-wider text-text-secondary">Host Status</span>
+<span class="font-label-md text-label-md text-text-primary font-medium mt-1">Extension status</span>
+<p class="font-body-sm text-body-sm text-text-secondary mt-1">
+                Active on Chrome, Edge &amp; Brave (v1.2.4)
+              </p>
+</div>
+<div class="flex items-center gap-2 mt-space-md pt-space-sm border-t border-border-soft">
+<span class="material-symbols-outlined text-accent-teal text-[16px]">verified</span>
+<span class="font-technical-data text-technical-data text-text-secondary">Native messaging verified</span>
+</div>
+</div>
+<!-- Keyboard Shortcut Customization -->
+<div class="flex flex-col justify-between p-space-md rounded-lg bg-surface-container-low border border-border-soft">
+<div class="flex flex-col">
+<div class="flex items-center justify-between">
+<span class="font-technical-meta text-technical-meta uppercase tracking-wider text-text-secondary">Key Binding</span>
+<span class="font-technical-meta text-technical-meta text-accent-teal cursor-pointer hover:underline" onclick="startRebind(this)">Click to customize</span>
+</div>
+<span class="font-label-md text-label-md text-text-primary font-medium mt-1">Quick fill keyboard shortcut</span>
+<p class="font-body-sm text-body-sm text-text-secondary mt-1">
+                Invoke autofill execution without interacting with mouse inputs.
+              </p>
+</div>
+<div class="flex items-center justify-between mt-space-md pt-space-sm border-t border-border-soft">
+<div class="flex items-center gap-1.5" id="shortcutDisplay">
+<kbd class="px-2.5 py-1 rounded bg-surface-clean border border-border-soft shadow-xs font-technical-data text-technical-data text-text-primary font-medium">⌥ Option</kbd>
+<span class="text-text-secondary font-technical-data text-technical-data">+</span>
+<kbd class="px-2.5 py-1 rounded bg-surface-clean border border-border-soft shadow-xs font-technical-data text-technical-data text-text-primary font-medium">F</kbd>
+</div>
+<span class="font-technical-meta text-technical-meta text-text-secondary">Global</span>
+</div>
+</div>
+</div>
+<!-- Action Row -->
+<div class="mt-space-lg pt-space-md border-t border-border-soft flex flex-col sm:flex-row items-center justify-between gap-space-md">
+<div class="flex items-center gap-space-xs text-text-secondary">
+<span class="material-symbols-outlined text-[16px]">sync</span>
+<span class="font-technical-data text-technical-data">Last checked: 14 minutes ago</span>
+</div>
+<div class="flex items-center gap-space-sm w-full sm:w-auto">
+<button class="w-full sm:w-auto inline-flex items-center justify-center gap-space-xs px-space-md py-2 rounded-lg bg-surface-clean hover:bg-surface-container border border-border-soft text-text-primary font-label-md text-label-md transition-all active:-translate-y-0.5" id="updateBtn" onclick="checkUpdates(this)" type="button">
+<span class="material-symbols-outlined text-[16px]">cached</span>
+<span>Check for extension updates</span>
+</button>
+<button class="w-full sm:w-auto inline-flex items-center justify-center gap-space-xs px-space-md py-2 rounded-lg bg-accent-teal hover:bg-primary text-surface-clean font-label-md text-label-md transition-all active:-translate-y-0.5 shadow-sm" onclick="flashSaved(true)" type="button">
+<span>Save Changes</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Institutional Safety Footer Disclaimer -->
+<div class="p-space-md rounded-lg bg-surface-container border border-border-soft flex items-center justify-between text-text-secondary">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-[18px]">verified_user</span>
+<span class="font-body-sm text-body-sm">Configuration persists across authenticated desktop sessions automatically.</span>
+</div>
+<span class="font-technical-meta text-technical-meta">Schema 2.4.0</span>
+</div>
+</div>
+</div>
+</div>
+<script>
+  function toggleSwitch(btn) {
+    const isChecked = btn.getAttribute('aria-checked') === 'true';
+    const nextState = !isChecked;
+    btn.setAttribute('aria-checked', String(nextState));
+
+    const thumb = btn.querySelector('span:not(.sr-only)');
+    if (nextState) {
+      btn.classList.remove('bg-surface-container-high');
+      btn.classList.add('bg-accent-teal');
+      thumb.classList.remove('translate-x-0');
+      thumb.classList.add('translate-x-5');
+    } else {
+      btn.classList.remove('bg-accent-teal');
+      btn.classList.add('bg-surface-container-high');
+      thumb.classList.remove('translate-x-5');
+      thumb.classList.add('translate-x-0');
+    }
+
+    flashSaved();
+  }
+
+  function flashSaved(explicit = false) {
+    const toast = document.getElementById('saveToast');
+    if (!toast) return;
+    
+    if (explicit) {
+      toast.querySelector('span:last-child').textContent = 'Preferences saved explicitly';
+    } else {
+      toast.querySelector('span:last-child').textContent = 'Configuration synchronized';
+    }
+
+    toast.classList.remove('opacity-0');
+    toast.classList.add('opacity-100');
+
+    clearTimeout(window.__toastTimeout);
+    window.__toastTimeout = setTimeout(() => {
+      toast.classList.remove('opacity-100');
+      toast.classList.add('opacity-0');
+    }, 2400);
+  }
+
+  function checkUpdates(button) {
+    const originalText = button.innerHTML;
+    button.disabled = true;
+    button.innerHTML = '<span class="material-symbols-outlined text-[16px] animate-spin">progress_activity</span><span>Checking registry...</span>';
+    
+    setTimeout(() => {
+      button.innerHTML = '<span class="material-symbols-outlined text-[16px] text-accent-teal">check</span><span>Up to date (v1.2.4)</span>';
+      setTimeout(() => {
+        button.innerHTML = originalText;
+        button.disabled = false;
+      }, 2500);
+    }, 1200);
+  }
+
+  function startRebind(linkElement) {
+    const container = document.getElementById('shortcutDisplay');
+    const originalContent = container.innerHTML;
+    linkElement.textContent = 'Press combination...';
+    linkElement.classList.add('text-error');
+
+    container.innerHTML = '<span class="font-technical-data text-technical-data text-accent-teal animate-pulse">Awaiting key input...</span>';
+
+    const handler = (e) => {
+      e.preventDefault();
+      let key = e.key.toUpperCase();
+      let mod = [];
+      if (e.altKey) mod.push('Alt');
+      if (e.ctrlKey) mod.push('Ctrl');
+      if (e.shiftKey) mod.push('Shift');
+      if (e.metaKey) mod.push('Cmd');
+
+      if (mod.length > 0 && !['ALT','CONTROL','SHIFT','META'].includes(key)) {
+        container.innerHTML = `
+          <kbd class="px-2 py-0.5 rounded bg-surface-clean border border-border-soft shadow-xs font-technical-data text-technical-data text-text-primary font-medium">${mod.join(' + ')}</kbd>
+          <span class="text-text-secondary font-technical-data text-technical-data">+</span>
+          <kbd class="px-2 py-0.5 rounded bg-surface-clean border border-border-soft shadow-xs font-technical-data text-technical-data text-text-primary font-medium">${key}</kbd>
+        `;
+        linkElement.textContent = 'Customized';
+        linkElement.classList.remove('text-error');
+        window.removeEventListener('keydown', handler);
+        flashSaved();
+      }
+    };
+
+    window.addEventListener('keydown', handler);
+    setTimeout(() => {
+      window.removeEventListener('keydown', handler);
+      if (linkElement.textContent === 'Press combination...') {
+        linkElement.textContent = 'Click to customize';
+        linkElement.classList.remove('text-error');
+        container.innerHTML = originalContent;
+      }
+    }, 6000);
+  }
+</script></div></main></div></body></html>

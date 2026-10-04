@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&amp;family=Geist+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={"darkMode":"class","theme":{"extend":{"colors":{"surface-dim":"#dadad8","primary-container":"#0b6b59","tertiary-fixed":"#ffdad3","surface-container-high":"#e8e8e6","secondary-fixed":"#dde4e0","surface-container":"#eeeeec","on-secondary-container":"#5f6663","surface-variant":"#e2e3e0","surface-container-low":"#f4f4f1","on-tertiary-container":"#ffcdc3","on-secondary":"#ffffff","primary":"#005142","inverse-on-surface":"#f1f1ef","error":"#ba1a1a","surface-clean":"#FFFFFF","surface":"#f9f9f7","tertiary-fixed-dim":"#ffb4a4","on-surface":"#1a1c1b","accent-teal":"#0B6B59","surface-container-lowest":"#ffffff","secondary":"#59605d","tertiary":"#733427","inverse-primary":"#85d6bf","outline-variant":"#bec9c4","on-secondary-fixed-variant":"#414846","primary-fixed":"#a1f2db","border-soft":"#E2E6E3","on-primary":"#ffffff","secondary-container":"#dde4e0","on-tertiary-fixed-variant":"#733427","surface-container-highest":"#e2e3e0","inverse-surface":"#2f3130","primary-fixed-dim":"#85d6bf","on-surface-variant":"#3f4945","background":"#f9f9f7","on-error":"#ffffff","outline":"#6f7975","canvas-paper":"#F8F9F7","on-primary-fixed":"#002019","on-tertiary-fixed":"#3a0a03","on-primary-fixed-variant":"#005142","on-secondary-fixed":"#161d1b","on-background":"#1a1c1b","text-secondary":"#626966","secondary-fixed-dim":"#c1c8c4","error-container":"#ffdad6","on-primary-container":"#97e8d2","on-tertiary":"#ffffff","tertiary-container":"#904b3c","on-error-container":"#93000a","surface-tint":"#0a6b59","surface-bright":"#f9f9f7","text-primary":"#181A19"},"borderRadius":{"DEFAULT":"0.125rem","lg":"0.25rem","xl":"0.5rem","full":"0.75rem"},"spacing":{"space-2xl":"4rem","space-lg":"1.5rem","gutter":"1.5rem","space-md":"1rem","gutter-mobile":"1rem","space-xl":"2.5rem","space-sm":"0.5rem","margin-mobile":"1.25rem","space-xs":"0.25rem","margin":"3rem"},"fontFamily":{"body-sm":["Geist"],"technical-meta":["Geist Mono"],"technical-code":["Geist Mono"],"body-md":["Geist"],"display-hero-mobile":["Geist"],"headline-lg-mobile":["Geist"],"headline-md":["Geist"],"display-hero":["Geist"],"body-lg":["Geist"],"label-sm":["Geist"],"technical-data":["Geist Mono"],"headline-lg":["Geist"],"label-md":["Geist"],"headline-sm":["Geist"]},"fontSize":{"body-sm":["13px",{"lineHeight":"20px","fontWeight":"400"}],"technical-meta":["11px",{"lineHeight":"14px","letterSpacing":"0.02em","fontWeight":"400"}],"technical-code":["13px",{"lineHeight":"18px","letterSpacing":"0em","fontWeight":"400"}],"body-md":["15px",{"lineHeight":"24px","fontWeight":"400"}],"display-hero-mobile":["36px",{"lineHeight":"42px","letterSpacing":"-0.025em","fontWeight":"600"}],"headline-lg-mobile":["28px",{"lineHeight":"34px","letterSpacing":"-0.02em","fontWeight":"600"}],"headline-md":["26px",{"lineHeight":"34px","letterSpacing":"-0.015em","fontWeight":"500"}],"display-hero":["52px",{"lineHeight":"60px","letterSpacing":"-0.03em","fontWeight":"600"}],"body-lg":["17px",{"lineHeight":"27px","letterSpacing":"-0.005em","fontWeight":"400"}],"label-sm":["12px",{"lineHeight":"16px","letterSpacing":"0.01em","fontWeight":"500"}],"technical-data":["12px",{"lineHeight":"16px","letterSpacing":"0.01em","fontWeight":"500"}],"headline-lg":["38px",{"lineHeight":"46px","letterSpacing":"-0.025em","fontWeight":"600"}],"label-md":["14px",{"lineHeight":"18px","letterSpacing":"-0.005em","fontWeight":"500"}],"headline-sm":["20px",{"lineHeight":"28px","letterSpacing":"-0.01em","fontWeight":"500"}]}}}}</script></head><body class="bg-surface font-body-md text-on-surface antialiased"><aside class="fixed left-0 top-0 h-full w-64 bg-surface-clean border-r border-border-soft z-50 flex flex-col justify-between select-none"><div class="flex flex-col"><div class="h-16 px-space-lg flex items-center gap-space-sm border-b border-border-soft"><span class="font-headline-sm text-headline-sm text-text-primary tracking-tight font-medium">form<span class="text-accent-teal">ER</span></span><span class="font-technical-meta text-technical-meta text-text-secondary px-space-xs py-0.5 rounded bg-surface-container border border-border-soft ml-auto">v1.4</span></div><nav class="flex flex-col gap-0.5 p-space-sm" data-active-classes="bg-surface-container text-text-primary font-medium border-l-2 border-accent-teal pl-[calc(1rem-2px)]"><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg font-label-md text-label-md text-text-secondary hover:bg-surface-container hover:text-text-primary transition-colors" data-path="dashboard" href="#"><span class="material-symbols-outlined text-[18px]">grid_view</span><span>Dashboard</span></a><a aria-current="page" class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg transition-colors bg-surface-container text-text-primary font-medium border-l-2 border-accent-teal pl-[calc(1rem-2px)]" data-path="my-information" href="#"><span class="material-symbols-outlined text-[18px]">badge</span><span>My Information</span></a><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg font-label-md text-label-md text-text-secondary hover:bg-surface-container hover:text-text-primary transition-colors" data-path="history" href="#"><span class="material-symbols-outlined text-[18px]">schedule</span><span>History</span></a><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg font-label-md text-label-md text-text-secondary hover:bg-surface-container hover:text-text-primary transition-colors" data-path="account" href="#"><span class="material-symbols-outlined text-[18px]">person</span><span>Account</span></a><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg font-label-md text-label-md text-text-secondary hover:bg-surface-container hover:text-text-primary transition-colors" data-path="settings" href="#"><span class="material-symbols-outlined text-[18px]">tune</span><span>Settings</span></a></nav></div><div class="flex flex-col border-t border-border-soft p-space-sm gap-space-xs"><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg font-label-sm text-label-sm text-text-secondary hover:bg-surface-container hover:text-text-primary transition-colors" data-path="report-issue" href="#"><span class="material-symbols-outlined text-[18px]">flag</span><span>Report an issue</span></a><div class="mt-space-xs pt-space-xs px-space-sm py-space-xs flex items-center justify-between"><div class="flex items-center gap-space-sm min-w-0"><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center shrink-0"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div><div class="flex flex-col min-w-0"><span class="font-label-md text-label-md text-text-primary truncate">Shariq</span><span class="font-technical-meta text-technical-meta text-text-secondary truncate">shariq@domain.co</span></div></div><a class="p-space-xs text-text-secondary hover:text-text-primary rounded-lg transition-colors" data-path="logout" href="#" title="Sign out"><span class="material-symbols-outlined text-[18px]">logout</span></a></div></div></aside><div class="pl-64"><header class="fixed top-0 left-64 right-0 h-16 bg-surface-clean/90 backdrop-blur-md border-b border-border-soft z-40 flex items-center justify-between px-space-lg"><div class="flex items-center gap-space-md"><div class="flex items-center gap-space-xs px-space-sm py-1 rounded bg-surface-container border border-border-soft text-text-secondary font-technical-data text-technical-data"><span class="material-symbols-outlined text-[14px]">verified_user</span><span>Autofill Ready</span></div></div><div class="flex items-center gap-space-md"><button class="flex items-center gap-space-xs px-space-sm py-1.5 rounded-lg border border-border-soft bg-surface hover:bg-surface-container text-text-primary font-label-sm text-label-sm transition-colors" type="button"><span class="material-symbols-outlined text-[16px]">search</span><span class="hidden sm:inline">Search schema</span><kbd class="font-technical-meta text-technical-meta text-text-secondary ml-space-xs">⌘K</kbd></button><div class="w-px h-5 bg-border-soft"></div><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></header><main class="relative pt-16 bg-surface min-h-screen"><div class="w-full px-space-lg py-space-lg"><div class="flex flex-col w-full">
+<div class="w-full max-w-7xl mx-auto space-y-6">
+<!-- Page Header & Overview Card -->
+<div class="bg-surface-clean rounded-xl p-space-lg shadow-sm">
+<div class="flex flex-col lg:flex-row lg:items-center justify-between gap-6 pb-6">
+<div class="space-y-1">
+<div class="flex items-center gap-2">
+<h1 class="font-headline-md text-headline-md text-text-primary tracking-tight">My Information</h1>
+<span class="px-2 py-0.5 rounded text-technical-meta font-technical-meta bg-surface-container text-secondary">Verified Profile</span>
+</div>
+<p class="font-body-md text-body-md text-text-secondary">Keep your details up to date. formER uses this information when helping you fill online forms.</p>
+</div>
+<div class="flex items-center gap-3">
+<button class="flex items-center gap-2 px-4 py-2.5 rounded-lg bg-surface-container hover:bg-surface-container-high text-text-primary font-label-md text-label-md transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">history</span>
+<span>Recent Updates</span>
+</button>
+<button class="flex items-center gap-2 px-4 py-2.5 rounded-lg bg-accent-teal hover:bg-primary text-surface-clean font-label-md text-label-md transition-colors shadow-sm active:translate-y-[1px]" type="button">
+<span class="material-symbols-outlined text-[18px]">verified</span>
+<span>Check All Fields</span>
+</button>
+</div>
+</div>
+<!-- Profile Completion Gauge & Recommendations -->
+<div class="bg-surface rounded-lg p-space-md">
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-3">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-primary-container/10 flex items-center justify-center text-accent-teal">
+<span class="material-symbols-outlined text-[22px]">checklist</span>
+</div>
+<div>
+<div class="flex items-center gap-2">
+<span class="font-headline-sm text-headline-sm text-text-primary font-semibold">82% Complete</span>
+<span class="font-technical-data text-technical-data text-secondary">· 4 items recommended</span>
+</div>
+<p class="font-body-sm text-body-sm text-text-secondary">Adding your passport and alternate contact will unlock high-speed visa &amp; job autofills.</p>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<button class="px-3 py-1.5 rounded-lg bg-surface-clean hover:bg-surface-container text-accent-teal font-label-sm text-label-sm transition-colors shadow-sm" type="button">
+              + Link Passport
+            </button>
+<button class="px-3 py-1.5 rounded-lg bg-surface-clean hover:bg-surface-container text-text-secondary font-label-sm text-label-sm transition-colors shadow-sm" type="button">
+              Add Work Contact
+            </button>
+</div>
+</div>
+<!-- Metric progress track -->
+<div class="w-full h-2 rounded-full bg-surface-container-high overflow-hidden">
+<div class="h-full bg-accent-teal rounded-full transition-all duration-500 ease-out" style="width: 82%;"></div>
+</div>
+</div>
+</div>
+<!-- 2 Column Editorial Master Layout -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+<!-- LEFT COLUMN: Primary Core (7 Cols) -->
+<div class="lg:col-span-7 space-y-6">
+<!-- 1. Personal Information Card -->
+<div class="bg-surface-clean rounded-xl p-space-lg shadow-sm">
+<div class="flex items-center justify-between pb-4">
+<div class="flex items-center gap-2.5">
+<span class="material-symbols-outlined text-[20px] text-accent-teal">badge</span>
+<h2 class="font-headline-sm text-headline-sm text-text-primary font-medium">Personal Information</h2>
+</div>
+<button class="flex items-center gap-1.5 px-3 py-1 rounded-lg text-accent-teal hover:bg-surface-container font-label-sm text-label-sm transition-colors" type="button">
+<span class="material-symbols-outlined text-[16px]">edit</span>
+<span>Edit</span>
+</button>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+<div class="p-3 bg-surface rounded-lg">
+<div class="font-technical-meta text-technical-meta text-text-secondary uppercase tracking-wider mb-1">Full Legal Name</div>
+<div class="font-body-md text-body-md text-text-primary font-medium">Aarav V. Sharma</div>
+</div>
+<div class="p-3 bg-surface rounded-lg">
+<div class="font-technical-meta text-technical-meta text-text-secondary uppercase tracking-wider mb-1">Date of Birth</div>
+<div class="font-body-md text-body-md text-text-primary font-medium">14/08/1998 <span class="font-technical-data text-technical-data text-text-secondary font-normal">(26 yrs)</span></div>
+</div>
+<div class="p-3 bg-surface rounded-lg">
+<div class="font-technical-meta text-technical-meta text-text-secondary uppercase tracking-wider mb-1">Gender</div>
+<div class="font-body-md text-body-md text-text-primary font-medium">Male</div>
+</div>
+<div class="p-3 bg-surface rounded-lg">
+<div class="font-technical-meta text-technical-meta text-text-secondary uppercase tracking-wider mb-1">Nationality</div>
+<div class="font-body-md text-body-md text-text-primary font-medium">Indian</div>
+</div>
+<div class="p-3 bg-surface rounded-lg">
+<div class="font-technical-meta text-technical-meta text-text-secondary uppercase tracking-wider mb-1">Marital Status</div>
+<div class="font-body-md text-body-md text-text-primary font-medium">Single</div>
+</div>
+<div class="p-3 bg-surface rounded-lg">
+<div class="font-technical-meta text-technical-meta text-text-secondary uppercase tracking-wider mb-1">Blood Group</div>
+<div class="font-body-md text-body-md text-text-primary font-medium">O Positive (O+)</div>
+</div>
+</div>
+</div>
+<!-- 2. Contact Information Card -->
+<div class="bg-surface-clean rounded-xl p-space-lg shadow-sm">
+<div class="flex items-center justify-between pb-4">
+<div class="flex items-center gap-2.5">
+<span class="material-symbols-outlined text-[20px] text-accent-teal">contact_phone</span>
+<h2 class="font-headline-sm text-headline-sm text-text-primary font-medium">Contact Information</h2>
+</div>
+<button class="flex items-center gap-1.5 px-3 py-1 rounded-lg text-accent-teal hover:bg-surface-container font-label-sm text-label-sm transition-colors" type="button">
+<span class="material-symbols-outlined text-[16px]">edit</span>
+<span>Edit</span>
+</button>
+</div>
+<div class="space-y-3 pt-2">
+<div class="p-3.5 bg-surface rounded-lg flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+<div>
+<span class="font-technical-meta text-technical-meta text-text-secondary uppercase tracking-wider block mb-0.5">Primary Email</span>
+<span class="font-body-md text-body-md text-text-primary font-medium">aarav.sharma@domain.co</span>
+</div>
+<span class="self-start sm:self-auto px-2 py-0.5 bg-surface-container text-accent-teal font-technical-data text-technical-data rounded">Verified</span>
+</div>
+<div class="p-3.5 bg-surface rounded-lg flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+<div>
+<span class="font-technical-meta text-technical-meta text-text-secondary uppercase tracking-wider block mb-0.5">Alternate Email</span>
+<span class="font-body-md text-body-md text-text-primary font-medium">aarav.work@outlook.com</span>
+</div>
+<span class="self-start sm:self-auto px-2 py-0.5 bg-surface-container text-secondary font-technical-data text-technical-data rounded">Personal Secondary</span>
+</div>
+<div class="p-3.5 bg-surface rounded-lg flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+<div>
+<span class="font-technical-meta text-technical-meta text-text-secondary uppercase tracking-wider block mb-0.5">Mobile Number</span>
+<span class="font-body-md text-body-md text-text-primary font-medium font-technical-code">+91 98765 43210</span>
+</div>
+<span class="self-start sm:self-auto px-2 py-0.5 bg-surface-container text-accent-teal font-technical-data text-technical-data rounded">OTP Validated</span>
+</div>
+<div class="p-3.5 bg-surface rounded-lg flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+<div>
+<span class="font-technical-meta text-technical-meta text-text-secondary uppercase tracking-wider block mb-0.5">Alternate Mobile</span>
+<span class="font-body-md text-body-md text-text-secondary italic">Not provided</span>
+</div>
+<button class="self-start sm:self-auto text-accent-teal hover:underline font-label-sm text-label-sm" type="button">
+                + Add alternate
+              </button>
+</div>
+</div>
+</div>
+<!-- 3. Residential Addresses Card -->
+<div class="bg-surface-clean rounded-xl p-space-lg shadow-sm">
+<div class="flex items-center justify-between pb-4">
+<div class="flex items-center gap-2.5">
+<span class="material-symbols-outlined text-[20px] text-accent-teal">home_pin</span>
+<h2 class="font-headline-sm text-headline-sm text-text-primary font-medium">Residential Addresses</h2>
+</div>
+<button class="flex items-center gap-1.5 px-3 py-1 rounded-lg text-accent-teal hover:bg-surface-container font-label-sm text-label-sm transition-colors" type="button">
+<span class="material-symbols-outlined text-[16px]">edit</span>
+<span>Edit</span>
+</button>
+</div>
+<div class="space-y-4 pt-2">
+<!-- Current Address -->
+<div class="p-4 bg-surface rounded-lg space-y-2">
+<div class="flex items-center justify-between">
+<span class="font-technical-meta text-technical-meta text-text-secondary uppercase tracking-wider">Current Residential Address</span>
+<span class="px-2 py-0.5 bg-surface-container text-text-primary font-technical-data text-technical-data rounded">Primary Residence</span>
+</div>
+<p class="font-body-md text-body-md text-text-primary font-medium leading-relaxed">
+                Flat 402, Nilgiri Heights, Sector 14, R.K. Puram, New Delhi, Delhi, 110022
+              </p>
+<div class="flex flex-wrap items-center gap-2 text-text-secondary font-technical-meta text-technical-meta">
+<span>Country: India</span>
+<span>·</span>
+<span>Postal Code: 110022</span>
+<span>·</span>
+<span>District: South West Delhi</span>
+</div>
+</div>
+<!-- Permanent Address -->
+<div class="p-4 bg-surface rounded-lg space-y-2">
+<div class="flex items-center justify-between">
+<span class="font-technical-meta text-technical-meta text-text-secondary uppercase tracking-wider">Permanent Address</span>
+<span class="px-2 py-0.5 bg-surface-container text-accent-teal font-technical-data text-technical-data rounded">Synced</span>
+</div>
+<p class="font-body-md text-body-md text-text-primary">
+                Same as current address
+              </p>
+<p class="font-body-sm text-body-sm text-text-secondary">
+                Auto-fills whenever government or examination portals mandate a separate permanent domicile record.
+              </p>
+</div>
+</div>
+</div>
+<!-- 4. Education History Card -->
+<div class="bg-surface-clean rounded-xl p-space-lg shadow-sm">
+<div class="flex items-center justify-between pb-4">
+<div class="flex items-center gap-2.5">
+<span class="material-symbols-outlined text-[20px] text-accent-teal">school</span>
+<h2 class="font-headline-sm text-headline-sm text-text-primary font-medium">Education History</h2>
+</div>
+<div class="flex items-center gap-2">
+<button class="flex items-center gap-1.5 px-3 py-1 rounded-lg bg-surface-container hover:bg-surface-container-high text-accent-teal font-label-sm text-label-sm transition-colors" type="button">
+<span class="material-symbols-outlined text-[16px]">add</span>
+<span>Add education</span>
+</button>
+<button class="flex items-center gap-1.5 px-3 py-1 rounded-lg text-accent-teal hover:bg-surface-container font-label-sm text-label-sm transition-colors" type="button">
+<span class="material-symbols-outlined text-[16px]">edit</span>
+<span>Edit</span>
+</button>
+</div>
+</div>
+<div class="space-y-4 pt-2">
+<!-- Item 1: Undergraduate -->
+<div class="p-4 bg-surface rounded-lg space-y-2 relative">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
+<div class="flex items-center gap-2">
+<span class="font-headline-sm text-[16px] leading-[22px] font-medium text-text-primary">Undergraduate (B.Tech)</span>
+<span class="px-2 py-0.5 bg-surface-container-high text-text-primary font-technical-data text-technical-data rounded">Degree</span>
+</div>
+<span class="font-technical-meta text-technical-meta text-text-secondary">2016 – 2020</span>
+</div>
+<div class="font-body-md text-body-md text-text-primary font-medium">
+                IIT Delhi · Computer Science &amp; Engineering
+              </div>
+<div class="flex items-center gap-3 pt-1">
+<span class="font-technical-data text-technical-data bg-surface-container px-2 py-1 rounded text-text-primary font-medium">CGPA: 8.85 / 10.0</span>
+<span class="font-body-sm text-body-sm text-text-secondary">Full Time Regular Course</span>
+</div>
+</div>
+<!-- Item 2: Class 12th -->
+<div class="p-4 bg-surface rounded-lg space-y-2">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
+<div class="flex items-center gap-2">
+<span class="font-headline-sm text-[16px] leading-[22px] font-medium text-text-primary">Class 12th (Higher Secondary)</span>
+<span class="px-2 py-0.5 bg-surface-container-high text-text-primary font-technical-data text-technical-data rounded">CBSE</span>
+</div>
+<span class="font-technical-meta text-technical-meta text-text-secondary">Year of Passing: 2016</span>
+</div>
+<div class="font-body-md text-body-md text-text-primary font-medium">
+                Delhi Public School, R.K. Puram · Science (PCM)
+              </div>
+<div class="flex items-center gap-3 pt-1">
+<span class="font-technical-data text-technical-data bg-surface-container px-2 py-1 rounded text-text-primary font-medium">Aggregate: 91.80%</span>
+<span class="font-body-sm text-body-sm text-text-secondary">English, Physics, Chemistry, Math, CS</span>
+</div>
+</div>
+<!-- Item 3: Class 10th -->
+<div class="p-4 bg-surface rounded-lg space-y-2">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
+<div class="flex items-center gap-2">
+<span class="font-headline-sm text-[16px] leading-[22px] font-medium text-text-primary">Class 10th (Secondary School)</span>
+<span class="px-2 py-0.5 bg-surface-container-high text-text-primary font-technical-data text-technical-data rounded">CBSE</span>
+</div>
+<span class="font-technical-meta text-technical-meta text-text-secondary">Year of Passing: 2014</span>
+</div>
+<div class="font-body-md text-body-md text-text-primary font-medium">
+                Delhi Public School, R.K. Puram
+              </div>
+<div class="flex items-center gap-3 pt-1">
+<span class="font-technical-data text-technical-data bg-surface-container px-2 py-1 rounded text-text-primary font-medium">Result: 94.20%</span>
+<span class="font-technical-data text-technical-data text-accent-teal bg-surface-container px-2 py-0.5 rounded">Marksheet Verified</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- RIGHT COLUMN: Identity, Family & Common Info (5 Cols) -->
+<div class="lg:col-span-5 space-y-6">
+<!-- 5. Identity Information Card -->
+<div class="bg-surface-clean rounded-xl p-space-lg shadow-sm">
+<div class="flex items-center justify-between pb-4">
+<div class="flex items-center gap-2.5">
+<span class="material-symbols-outlined text-[20px] text-accent-teal">fingerprint</span>
+<h2 class="font-headline-sm text-headline-sm text-text-primary font-medium">Identity Documents</h2>
+</div>
+<button class="flex items-center gap-1.5 px-3 py-1 rounded-lg text-accent-teal hover:bg-surface-container font-label-sm text-label-sm transition-colors" type="button">
+<span class="material-symbols-outlined text-[16px]">edit</span>
+<span>Edit</span>
+</button>
+</div>
+<div class="space-y-3 pt-2">
+<!-- Aadhaar -->
+<div class="p-3.5 bg-surface rounded-lg">
+<div class="flex items-center justify-between mb-1">
+<span class="font-technical-meta text-technical-meta text-text-secondary uppercase tracking-wider">Aadhaar (UIDAI)</span>
+<span class="font-technical-data text-technical-data text-accent-teal bg-surface-container px-2 py-0.5 rounded">Secured</span>
+</div>
+<div class="font-technical-code text-technical-code text-text-primary font-medium">
+                •••• •••• 9012
+              </div>
+</div>
+<!-- PAN -->
+<div class="p-3.5 bg-surface rounded-lg">
+<div class="flex items-center justify-between mb-1">
+<span class="font-technical-meta text-technical-meta text-text-secondary uppercase tracking-wider">PAN Number</span>
+<span class="font-technical-data text-technical-data text-accent-teal bg-surface-container px-2 py-0.5 rounded">Verified</span>
+</div>
+<div class="font-technical-code text-technical-code text-text-primary font-medium tracking-wide">
+                ABCPS1234F
+              </div>
+</div>
+<!-- Driving Licence -->
+<div class="p-3.5 bg-surface rounded-lg">
+<div class="flex items-center justify-between mb-1">
+<span class="font-technical-meta text-technical-meta text-text-secondary uppercase tracking-wider">Driving Licence</span>
+<span class="font-technical-data text-technical-data text-text-primary bg-surface-container px-2 py-0.5 rounded">Active</span>
+</div>
+<div class="font-technical-code text-technical-code text-text-primary font-medium">
+                DL-042018001923
+              </div>
+</div>
+<!-- Passport -->
+<div class="p-3.5 bg-surface-container-low rounded-lg flex items-center justify-between">
+<div>
+<span class="font-technical-meta text-technical-meta text-text-secondary uppercase tracking-wider block mb-0.5">Passport Number</span>
+<span class="font-body-sm text-body-sm text-text-secondary italic">Not linked yet</span>
+</div>
+<button class="px-3 py-1 rounded bg-surface-clean hover:bg-surface-container text-accent-teal font-label-sm text-label-sm shadow-sm transition-colors" type="button">
+                + Link Passport
+              </button>
+</div>
+</div>
+</div>
+<!-- 6. Family Information Card -->
+<div class="bg-surface-clean rounded-xl p-space-lg shadow-sm">
+<div class="flex items-center justify-between pb-4">
+<div class="flex items-center gap-2.5">
+<span class="material-symbols-outlined text-[20px] text-accent-teal">diversity_3</span>
+<h2 class="font-headline-sm text-headline-sm text-text-primary font-medium">Family Information</h2>
+</div>
+<button class="flex items-center gap-1.5 px-3 py-1 rounded-lg text-accent-teal hover:bg-surface-container font-label-sm text-label-sm transition-colors" type="button">
+<span class="material-symbols-outlined text-[16px]">edit</span>
+<span>Edit</span>
+</button>
+</div>
+<div class="space-y-3 pt-2">
+<div class="p-3.5 bg-surface rounded-lg">
+<span class="font-technical-meta text-technical-meta text-text-secondary uppercase tracking-wider block mb-1">Father's Name &amp; Title</span>
+<div class="font-body-md text-body-md text-text-primary font-medium">Vikram S. Sharma</div>
+<div class="font-body-sm text-body-sm text-text-secondary">Government Officer (Retd.)</div>
+</div>
+<div class="p-3.5 bg-surface rounded-lg">
+<span class="font-technical-meta text-technical-meta text-text-secondary uppercase tracking-wider block mb-1">Mother's Name &amp; Title</span>
+<div class="font-body-md text-body-md text-text-primary font-medium">Sunita Sharma</div>
+<div class="font-body-sm text-body-sm text-text-secondary">Professor</div>
+</div>
+<div class="p-3.5 bg-surface rounded-lg">
+<span class="font-technical-meta text-technical-meta text-text-secondary uppercase tracking-wider block mb-1">Annual Household Income</span>
+<div class="font-headline-sm text-[18px] text-text-primary font-semibold">₹ 12,50,000 <span class="font-body-sm text-body-sm text-text-secondary font-normal">/ annum</span></div>
+<p class="font-technical-meta text-technical-meta text-text-secondary mt-1">Commonly used for financial eligibility and fee waivers</p>
+</div>
+</div>
+</div>
+<!-- 7. Other Common Information Card -->
+<div class="bg-surface-clean rounded-xl p-space-lg shadow-sm">
+<div class="flex items-center justify-between pb-4">
+<div class="flex items-center gap-2.5">
+<span class="material-symbols-outlined text-[20px] text-accent-teal">tune</span>
+<h2 class="font-headline-sm text-headline-sm text-text-primary font-medium">Other Common Information</h2>
+</div>
+<button class="flex items-center gap-1.5 px-3 py-1 rounded-lg text-accent-teal hover:bg-surface-container font-label-sm text-label-sm transition-colors" type="button">
+<span class="material-symbols-outlined text-[16px]">edit</span>
+<span>Edit</span>
+</button>
+</div>
+<div class="grid grid-cols-1 gap-3 pt-2">
+<div class="p-3.5 bg-surface rounded-lg flex items-center justify-between">
+<div>
+<span class="font-technical-meta text-technical-meta text-text-secondary uppercase tracking-wider block mb-0.5">Category</span>
+<span class="font-body-md text-body-md text-text-primary font-medium">General (UR)</span>
+</div>
+<span class="font-technical-data text-technical-data text-text-secondary bg-surface-container px-2 py-0.5 rounded">Unreserved</span>
+</div>
+<div class="p-3.5 bg-surface rounded-lg flex items-center justify-between">
+<div>
+<span class="font-technical-meta text-technical-meta text-text-secondary uppercase tracking-wider block mb-0.5">State Domicile</span>
+<span class="font-body-md text-body-md text-text-primary font-medium">Delhi, India</span>
+</div>
+<span class="font-technical-data text-technical-data text-text-secondary bg-surface-container px-2 py-0.5 rounded">Resident</span>
+</div>
+<div class="p-3.5 bg-surface rounded-lg">
+<span class="font-technical-meta text-technical-meta text-text-secondary uppercase tracking-wider block mb-1">Languages Spoken &amp; Written</span>
+<div class="flex items-center gap-2">
+<span class="font-label-sm text-label-sm px-2.5 py-1 bg-surface-container rounded text-text-primary font-medium">English</span>
+<span class="font-label-sm text-label-sm px-2.5 py-1 bg-surface-container rounded text-text-primary font-medium">Hindi</span>
+</div>
+</div>
+<div class="p-3.5 bg-surface rounded-lg flex items-center justify-between">
+<div>
+<span class="font-technical-meta text-technical-meta text-text-secondary uppercase tracking-wider block mb-0.5">Person with Disability (PwD)</span>
+<span class="font-body-md text-body-md text-text-primary font-medium">No</span>
+</div>
+<span class="font-technical-data text-technical-data text-text-secondary bg-surface-container px-2 py-0.5 rounded">None</span>
+</div>
+<div class="p-3.5 bg-surface rounded-lg">
+<span class="font-technical-meta text-technical-meta text-text-secondary uppercase tracking-wider block mb-1">Emergency Contact</span>
+<div class="font-body-md text-body-md text-text-primary font-medium">Vikram S. Sharma</div>
+<div class="font-technical-code text-technical-code text-accent-teal mt-0.5 font-medium">+91 98111 22334</div>
+</div>
+</div>
+</div>
+<!-- Privacy & Protection Box -->
+<div class="bg-surface-container p-space-md rounded-xl space-y-2">
+<div class="flex items-center gap-2 text-accent-teal font-medium">
+<span class="material-symbols-outlined text-[18px]">lock</span>
+<span class="font-label-md text-label-md">Encrypted on your device</span>
+</div>
+<p class="font-body-sm text-body-sm text-text-secondary">
+            Your information stays stored locally and is securely populated only when you explicitly confirm autofill in browser tabs.
+          </p>
+</div>
+</div>
+</div>
+</div>
+</div></div></main></div></body></html>
