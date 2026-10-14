@@ -4,19 +4,29 @@ import { useProfile } from '../context/ProfileContext'
 
 export default function CreateAccountPage() {
   const navigate = useNavigate()
-  const { login } = useProfile()
+  const { register } = useProfile()
   const [showPassword, setShowPassword] = useState(false)
   const [showConfirmPassword, setShowConfirmPassword] = useState(false)
+  const [error, setError] = useState('')
+  const [loading, setLoading] = useState(false)
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
+    setError('')
+    setLoading(true)
     const formData = new FormData(e.target)
     const name = formData.get('name')
     const email = formData.get('email')
+    const password = formData.get('password') || 'Password123'
     
-    // Save to context
-    login({ name, email })
-    navigate('/app/dashboard')
+    try {
+      await register(name, email, password)
+      navigate('/app/dashboard')
+    } catch (err) {
+      setError(err.message || 'Registration failed. Please try again.')
+    } finally {
+      setLoading(false)
+    }
   }
 
   return (

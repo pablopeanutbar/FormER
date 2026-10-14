@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Central University Admissions 2026 — Application Form</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background: #F4F6F4;
+      color: #212529;
+      padding: 30px 20px;
+      line-height: 1.5;
+    }
+    .container {
+      max-width: 820px;
+      margin: 0 auto;
+      background: #FFFFFF;
+      border: 1px solid #DCE1DC;
+      border-radius: 8px;
+      padding: 32px 40px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.04);
+    }
+    .portal-banner {
+      border-bottom: 2px solid #0B6B59;
+      padding-bottom: 16px;
+      margin-bottom: 24px;
+    }
+    h1 { font-size: 24px; color: #111827; }
+    .subtitle { font-size: 13px; color: #6B7280; margin-top: 4px; }
+    
+    fieldset {
+      border: 1px solid #E5E7EB;
+      border-radius: 6px;
+      padding: 20px 24px;
+      margin-bottom: 24px;
+      background: #FAFAFA;
+    }
+    legend {
+      font-weight: 600;
+      font-size: 15px;
+      color: #0B6B59;
+      padding: 0 8px;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 16px;
+    }
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    label {
+      font-size: 12px;
+      font-weight: 600;
+      color: #374151;
+      text-transform: uppercase;
+      letter-spacing: 0.3px;
+    }
+    input, select {
+      padding: 9px 12px;
+      border: 1px solid #D1D5DB;
+      border-radius: 5px;
+      font-size: 14px;
+      background: #FFFFFF;
+      transition: border-color 0.15s, box-shadow 0.15s;
+    }
+    input:focus, select:focus {
+      outline: none;
+      border-color: #0B6B59;
+      box-shadow: 0 0 0 3px rgba(11, 107, 89, 0.15);
+    }
+    .actions {
+      display: flex;
+      justify-content: flex-end;
+      gap: 12px;
+      margin-top: 10px;
+    }
+    .btn-submit {
+      background: #0B6B59;
+      color: #FFFFFF;
+      padding: 10px 24px;
+      border: none;
+      border-radius: 6px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    .btn-submit:hover { background: #005142; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="portal-banner">
+      <h1>Central University Postgraduate Admissions 2026</h1>
+      <p class="subtitle">Online Candidate Registration Portal • National Entrance Examination Board</p>
+    </div>
+
+    <form id="admissionForm" onsubmit="event.preventDefault(); alert('Form submitted successfully!');">
+      <!-- Section 1: Personal Details -->
+      <fieldset>
+        <legend>1. Personal Details</legend>
+        <div class="grid">
+          <div class="form-group">
+            <label for="candName">Candidate Full Name</label>
+            <input type="text" id="candName" name="candidate_full_name" placeholder="Name as in matriculation certificate" required>
+          </div>
+          <div class="form-group">
+            <label for="fatherName">Father's Name</label>
+            <input type="text" id="fatherName" name="father_name" placeholder="Father's full name" required>
+          </div>
+          <div class="form-group">
+            <label for="motherName">Mother's Name</label>
+            <input type="text" id="motherName" name="mother_name" placeholder="Mother's full name">
+          </div>
+          <div class="form-group">
+            <label for="dob">Date of Birth</label>
+            <input type="date" id="dob" name="dob" required>
+          </div>
+          <div class="form-group">
+            <label for="gender">Gender</label>
+            <select id="gender" name="gender">
+              <option value="">Select Gender</option>
+              <option value="Male">Male</option>
+              <option value="Female">Female</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="category">Social Category</label>
+            <select id="category" name="category">
+              <option value="General">General</option>
+              <option value="OBC">OBC</option>
+              <option value="SC">SC</option>
+              <option value="ST">ST</option>
+              <option value="EWS">EWS</option>
+            </select>
+          </div>
+        </div>
+      </fieldset>
+
+      <!-- Section 2: Contact Information -->
+      <fieldset>
+        <legend>2. Contact & Address Details</legend>
+        <div class="grid">
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" placeholder="active.email@domain.com" required>
+          </div>
+          <div class="form-group">
+            <label for="mobile">Mobile Number</label>
+            <input type="tel" id="mobile" name="mobile_number" placeholder="10-digit number" required>
+          </div>
+          <div class="form-group" style="grid-column: 1 / -1;">
+            <label for="address">Permanent Address</label>
+            <input type="text" id="address" name="address_line1" placeholder="House no, Street name, Locality">
+          </div>
+          <div class="form-group">
+            <label for="city">City / District</label>
+            <input type="text" id="city" name="city">
+          </div>
+          <div class="form-group">
+            <label for="state">State / UT</label>
+            <input type="text" id="state" name="state">
+          </div>
+          <div class="form-group">
+            <label for="pincode">PIN Code</label>
+            <input type="text" id="pincode" name="pincode">
+          </div>
+        </div>
+      </fieldset>
+
+      <!-- Section 3: Class 10th (Secondary) -->
+      <fieldset>
+        <legend>3. Class 10th / Secondary Examination Details</legend>
+        <div class="grid">
+          <div class="form-group">
+            <label for="tenthRoll">10th Roll Number</label>
+            <input type="text" id="tenthRoll" name="matric_roll_no" placeholder="Roll No as per marksheet">
+          </div>
+          <div class="form-group">
+            <label for="tenthBoard">Education Board</label>
+            <input type="text" id="tenthBoard" name="tenth_board" placeholder="e.g. CBSE, ICSE">
+          </div>
+          <div class="form-group">
+            <label for="tenthPct">Percentage of Marks</label>
+            <input type="text" id="tenthPct" name="tenth_percentage" placeholder="e.g. 94.2%">
+          </div>
+          <div class="form-group">
+            <label for="tenthYear">Year of Passing</label>
+            <input type="text" id="tenthYear" name="tenth_year" placeholder="e.g. 2014">
+          </div>
+        </div>
+      </fieldset>
+
+      <!-- Section 4: Class 12th (Higher Secondary) -->
+      <fieldset>
+        <legend>4. Class 12th / Intermediate Examination Details</legend>
+        <div class="grid">
+          <div class="form-group">
+            <label for="twelfthRoll">12th Roll Number</label>
+            <input type="text" id="twelfthRoll" name="inter_roll_no" placeholder="Roll No as per marksheet">
+          </div>
+          <div class="form-group">
+            <label for="twelfthBoard">Education Board</label>
+            <input type="text" id="twelfthBoard" name="twelfth_board" placeholder="e.g. CBSE, State Board">
+          </div>
+          <div class="form-group">
+            <label for="twelfthPct">Percentage of Marks</label>
+            <input type="text" id="twelfthPct" name="twelfth_percentage" placeholder="e.g. 91.8%">
+          </div>
+          <div class="form-group">
+            <label for="twelfthYear">Year of Passing</label>
+            <input type="text" id="twelfthYear" name="twelfth_year" placeholder="e.g. 2016">
+          </div>
+        </div>
+      </fieldset>
+
+      <!-- Section 5: Undergraduate Degree -->
+      <fieldset>
+        <legend>5. Qualifying Graduation Degree</legend>
+        <div class="grid">
+          <div class="form-group">
+            <label for="degree">Degree Name</label>
+            <input type="text" id="degree" name="ug_degree" placeholder="e.g. B.Tech / B.Sc">
+          </div>
+          <div class="form-group">
+            <label for="branch">Discipline / Branch</label>
+            <input type="text" id="branch" name="ug_branch" placeholder="e.g. Computer Science">
+          </div>
+          <div class="form-group">
+            <label for="university">University / Institute</label>
+            <input type="text" id="university" name="ug_university" placeholder="Name of institution">
+          </div>
+          <div class="form-group">
+            <label for="cgpa">Overall CGPA / Marks %</label>
+            <input type="text" id="cgpa" name="ug_cgpa" placeholder="e.g. 8.85">
+          </div>
+        </div>
+      </fieldset>
+
+      <div class="actions">
+        <button type="submit" class="btn-submit">Submit Application</button>
+      </div>
+    </form>
+  </div>
+</body>
+</html>

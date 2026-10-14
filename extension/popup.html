@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>formER</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      width: 320px;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: #F8F9F7;
+      color: #181A19;
+      padding: 16px;
+    }
+    .header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-bottom: 12px;
+      border-bottom: 1px solid #E2E6E3;
+    }
+    .brand {
+      font-size: 18px;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+    }
+    .brand span { color: #0B6B59; }
+    .badge-ready {
+      font-size: 11px;
+      background: #D1FAE5;
+      color: #065F46;
+      padding: 2px 8px;
+      border-radius: 12px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .pulse-dot {
+      width: 6px;
+      height: 6px;
+      background: #0B6B59;
+      border-radius: 50%;
+    }
+    .status-card {
+      margin-top: 14px;
+      background: #FFFFFF;
+      border: 1px solid #E2E6E3;
+      border-radius: 12px;
+      padding: 14px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+    }
+    .status-row {
+      display: flex;
+      justify-content: space-between;
+      font-size: 12px;
+      margin-bottom: 8px;
+    }
+    .status-label { color: #626966; }
+    .status-val { font-weight: 600; color: #181A19; }
+    
+    .actions {
+      margin-top: 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .btn-primary {
+      width: 100%;
+      background: #0B6B59;
+      color: #FFFFFF;
+      border: none;
+      padding: 10px;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 13px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      transition: background 0.2s;
+    }
+    .btn-primary:hover { background: #005142; }
+    .btn-secondary {
+      width: 100%;
+      background: #FFFFFF;
+      border: 1px solid #E2E6E3;
+      color: #181A19;
+      padding: 8px;
+      border-radius: 8px;
+      font-weight: 500;
+      font-size: 12px;
+      cursor: pointer;
+      text-align: center;
+      text-decoration: none;
+      display: block;
+      transition: background 0.2s;
+    }
+    .btn-secondary:hover { background: #EEEEEC; }
+    .footer-note {
+      margin-top: 12px;
+      text-align: center;
+      font-size: 10px;
+      color: #626966;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <div class="brand">form<span>ER</span></div>
+    <div class="badge-ready">
+      <div class="pulse-dot"></div>
+      <span>Autofill Ready</span>
+    </div>
+  </div>
+
+  <div class="status-card">
+    <div class="status-row">
+      <span class="status-label">Profile Vault:</span>
+      <span class="status-val" id="vaultStatus">Active (Synchronized)</span>
+    </div>
+    <div class="status-row">
+      <span class="status-label">ML Scoring Engine:</span>
+      <span class="status-val" style="color:#0B6B59;">Online</span>
+    </div>
+    <div class="status-row" style="margin-bottom:0;">
+      <span class="status-label">Security Protocol:</span>
+      <span class="status-val">Zero-Knowledge (AES-GCM)</span>
+    </div>
+  </div>
+
+  <div class="actions">
+    <button class="btn-primary" id="btnScanPage">
+      Inspect Active Tab
+    </button>
+    <a href="http://localhost:5173/app/dashboard" target="_blank" class="btn-secondary">
+      Open formER Web Dashboard
+    </a>
+  </div>
+
+  <div class="footer-note">
+    formER v1.4.0 • Human-in-the-Loop AI Assistant
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

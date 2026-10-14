@@ -6,16 +6,25 @@ export default function LoginPage() {
   const navigate = useNavigate()
   const { login } = useProfile()
   const [showPassword, setShowPassword] = useState(false)
+  const [error, setError] = useState('')
+  const [loading, setLoading] = useState(false)
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
+    setError('')
+    setLoading(true)
     const formData = new FormData(e.target)
     const email = formData.get('email')
+    const password = formData.get('password') || 'Password123'
     
-    // Mock login taking name from email prefix
-    const name = email.split('@')[0]
-    login({ name, email })
-    navigate('/app/dashboard')
+    try {
+      await login(email, password)
+      navigate('/app/dashboard')
+    } catch (err) {
+      setError(err.message || 'Login failed. Please check your credentials.')
+    } finally {
+      setLoading(false)
+    }
   }
 
   return (

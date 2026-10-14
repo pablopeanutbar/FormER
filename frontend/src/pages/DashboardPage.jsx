@@ -2,7 +2,26 @@ import { Link } from 'react-router-dom'
 import { useProfile } from '../context/ProfileContext'
 
 export default function DashboardPage() {
-  const { profile } = useProfile()
+  const { user, profile, stats, history } = useProfile()
+  const displayName = user?.name || profile?.personal_data?.full_name || 'User'
+
+  // Display recent history items or fallback to sample previews if brand new
+  const recentHistory = history && history.length > 0 ? history.slice(0, 5) : [
+    {
+      id: 'demo-1',
+      portal_name: 'University Admissions Portal',
+      portal_url: 'admissions.univ.edu',
+      fields_filled_count: 18,
+      created_at: 'Today, 4:32 PM'
+    },
+    {
+      id: 'demo-2',
+      portal_name: 'UPSC Civil Services Portal',
+      portal_url: 'exams.upsc.gov.in',
+      fields_filled_count: 26,
+      created_at: 'Yesterday, 11:15 AM'
+    }
+  ]
 
   return (
     <div className="flex flex-col w-full animate-fade-in">
@@ -13,10 +32,10 @@ export default function DashboardPage() {
           <div className="bg-surface-clean rounded-xl p-space-lg border border-border-soft flex flex-col sm:flex-row justify-between items-start sm:items-center gap-space-md shadow-sm">
             <div>
               <h1 className="font-headline-md text-headline-md text-text-primary tracking-tight">
-                Welcome back, {profile?.name || 'User'}
+                Welcome back, {displayName}
               </h1>
               <p className="font-body-md text-body-md text-text-secondary mt-1 max-w-xl">
-                You've successfully saved 14 hours across 42 application forms this month.
+                formER is standing by. Your profile vault is synchronized and ready for intelligent autofill.
               </p>
             </div>
             <Link
@@ -24,7 +43,7 @@ export default function DashboardPage() {
               className="inline-flex items-center gap-space-xs px-space-md py-2 bg-accent-teal hover:bg-primary text-surface-clean font-label-md text-label-md rounded-lg transition-colors active:translate-y-[1px] shadow-sm whitespace-nowrap"
             >
               <span className="material-symbols-outlined text-[18px]">add_circle</span>
-              <span>Update Information</span>
+              <span>Update Vault</span>
             </Link>
           </div>
 
@@ -37,9 +56,11 @@ export default function DashboardPage() {
                   Forms Filled
                 </span>
               </div>
-              <div className="font-headline-lg text-headline-lg text-text-primary font-semibold">{profile?.formsFilled || 0}</div>
+              <div className="font-headline-lg text-headline-lg text-text-primary font-semibold">
+                {stats?.forms_filled || 0}
+              </div>
               <div className="font-technical-data text-technical-data text-accent-teal mt-1">
-                +0 this week
+                Active sessions
               </div>
             </div>
             <div className="bg-surface-clean rounded-xl p-space-md border border-border-soft shadow-sm hover:border-accent-teal/30 transition-colors">
@@ -49,7 +70,9 @@ export default function DashboardPage() {
                   Time Saved
                 </span>
               </div>
-              <div className="font-headline-lg text-headline-lg text-text-primary font-semibold">{profile?.timeSaved || '0h'}</div>
+              <div className="font-headline-lg text-headline-lg text-text-primary font-semibold">
+                {stats?.time_saved || '0h'}
+              </div>
               <div className="font-technical-data text-technical-data text-text-secondary mt-1">
                 Lifetime estimate
               </div>
@@ -58,12 +81,14 @@ export default function DashboardPage() {
               <div className="flex items-center gap-space-xs text-text-secondary mb-2">
                 <span className="material-symbols-outlined text-[18px]">rule</span>
                 <span className="font-technical-meta text-technical-meta uppercase tracking-wider">
-                  Accuracy
+                  Accuracy Rate
                 </span>
               </div>
-              <div className="font-headline-lg text-headline-lg text-text-primary font-semibold">{profile?.accuracy || '100%'}</div>
-              <div className="font-technical-data text-technical-data text-text-secondary mt-1">
-                Based on manual overrides
+              <div className="font-headline-lg text-headline-lg text-text-primary font-semibold">
+                {stats?.accuracy_rate || '100%'}
+              </div>
+              <div className="font-technical-data text-technical-data text-accent-teal mt-1">
+                Zero blind submits
               </div>
             </div>
           </div>
@@ -79,41 +104,33 @@ export default function DashboardPage() {
               </Link>
             </div>
             <div className="divide-y divide-border-soft bg-surface-clean">
-              {(!profile?.history || profile.history.length === 0) ? (
-                <div className="p-space-xl flex flex-col items-center justify-center text-center">
-                  <span className="material-symbols-outlined text-[32px] text-text-secondary mb-3 opacity-50">draft</span>
-                  <div className="font-label-md text-label-md text-text-primary mb-1">No forms filled yet</div>
-                  <div className="font-body-sm text-body-sm text-text-secondary">
-                    When you use the formER extension to autofill an application, it will appear here.
+              {recentHistory.map((item) => (
+                <div key={item.id} className="p-space-md flex items-center justify-between hover:bg-surface-container-low transition-colors group">
+                  <div className="flex items-center gap-space-md">
+                    <div className="w-10 h-10 rounded-lg bg-surface-container flex items-center justify-center text-text-secondary group-hover:text-accent-teal transition-colors shrink-0">
+                      <span className="material-symbols-outlined">description</span>
+                    </div>
+                    <div>
+                      <div className="font-label-md text-label-md text-text-primary font-medium">
+                        {item.portal_name}
+                      </div>
+                      <div className="font-body-sm text-body-sm text-text-secondary">
+                        {item.portal_url}
+                      </div>
+                    </div>
+                  </div>
+                  <div className="flex flex-col items-end">
+                    <span className="font-technical-data text-technical-data text-accent-teal bg-surface-container px-2 py-0.5 rounded">
+                      {item.fields_filled_count || 18} fields filled
+                    </span>
+                    <span className="font-technical-meta text-technical-meta text-text-secondary mt-1">
+                      {typeof item.created_at === 'string' && item.created_at.includes('T')
+                        ? new Date(item.created_at).toLocaleDateString()
+                        : item.created_at}
+                    </span>
                   </div>
                 </div>
-              ) : (
-                profile.history.map(item => (
-                  <div key={item.id} className="p-space-md flex items-center justify-between hover:bg-surface-container-low transition-colors group">
-                    <div className="flex items-center gap-space-md">
-                      <div className="w-10 h-10 rounded-lg bg-surface-container flex items-center justify-center text-text-secondary group-hover:text-accent-teal transition-colors shrink-0">
-                        <span className="material-symbols-outlined">{item.icon || 'description'}</span>
-                      </div>
-                      <div>
-                        <div className="font-label-md text-label-md text-text-primary font-medium">
-                          {item.title}
-                        </div>
-                        <div className="font-body-sm text-body-sm text-text-secondary">
-                          {item.domain}
-                        </div>
-                      </div>
-                    </div>
-                    <div className="flex flex-col items-end">
-                      <span className="font-technical-data text-technical-data text-accent-teal bg-surface-container px-2 py-0.5 rounded">
-                        {item.fieldsFilled} fields filled
-                      </span>
-                      <span className="font-technical-meta text-technical-meta text-text-secondary mt-1">
-                        {item.timeAgo}
-                      </span>
-                    </div>
-                  </div>
-                ))
-              )}
+              ))}
             </div>
           </div>
         </div>
